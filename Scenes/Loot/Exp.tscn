@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca4ynrfjjqu8r"]
+
+[ext_resource type="Script" path="res://Scenes/Loot/Exp.gd" id="1_1um1g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6j3sl"]
+radius = 70.0071
+
+[sub_resource type="Gradient" id="Gradient_xqpe8"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.419355)
+colors = PackedColorArray(0, 0.765957, 0.967372, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6cax3"]
+gradient = SubResource("Gradient_xqpe8")
+
+[node name="Exp" type="Node2D"]
+script = ExtResource("1_1um1g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6j3sl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 206.0
+offset_bottom = -20.0
+scale = Vector2(0.381333, 2.8822)
+texture = SubResource("GradientTexture1D_6cax3")

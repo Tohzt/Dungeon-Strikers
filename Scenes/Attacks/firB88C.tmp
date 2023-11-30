@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://ca3sm06ykt7lk"]
+
+[ext_resource type="Script" path="res://Scenes/Attacks/fireball.gd" id="1_gpxkm"]
+[ext_resource type="Texture2D" uid="uid://cpsth4duovgnp" path="res://Scenes/Attacks/src/fireball_small.png" id="1_kklbv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbw4e"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erqiw"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnglp"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1agv"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(24, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ovtn"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(32, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gvgu"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(40, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toypf"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(48, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6f4d"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(56, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxcv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbw4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erqiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnglp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1agv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ovtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gvgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toypf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6f4d")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 10.0
+}]
+
+[node name="fireball" type="Node2D"]
+script = ExtResource("1_gpxkm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_gxcv1")
+animation = &"fireball"
+frame_progress = 0.903517

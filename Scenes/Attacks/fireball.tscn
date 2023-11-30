@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://ca3sm06ykt7lk"]
+
+[ext_resource type="Script" path="res://Scenes/Attacks/fireball.gd" id="1_gpxkm"]
+[ext_resource type="Texture2D" uid="uid://sa02nm3yvmm" path="res://Scenes/Attacks/src/fireball_small.png" id="1_kklbv"]
+[ext_resource type="Shader" path="res://Scenes/Characters/knight.gdshader" id="2_244wb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o77wv"]
+radius = 45.0444
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_681us"]
+shader = ExtResource("2_244wb")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 3.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5vqh"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(2, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0dl7"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(94, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovnd7"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(186, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ej6"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(278, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjw0v"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(370, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e8jm"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(462, 0, 86, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tm7h"]
+atlas = ExtResource("1_kklbv")
+region = Rect2(554, 0, 86, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxcv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5vqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0dl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovnd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ej6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjw0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e8jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tm7h")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 10.0
+}]
+
+[node name="fireball" type="CharacterBody2D" groups=["Attack"]]
+collision_layer = 0
+collision_mask = 13
+script = ExtResource("1_gpxkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o77wv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_681us")
+position = Vector2(0, -46.15)
+sprite_frames = SubResource("SpriteFrames_gxcv1")
+animation = &"fireball"
+offset = Vector2(3.7, 2.8)

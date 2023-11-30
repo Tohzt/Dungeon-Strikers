@@ -1,0 +1,160 @@
+[gd_scene load_steps=19 format=3 uid="uid://dt1m1feio7oxg"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/Enemy.gd" id="1_3c5uu"]
+[ext_resource type="Texture2D" uid="uid://d745eudbampb" path="res://Scenes/Ball/src/Slime.png" id="3_l7yu1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nf7pi"]
+radius = 48.1664
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyxyd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xrabe"]
+material = SubResource("StandardMaterial3D_fyxyd")
+
+[sub_resource type="Gradient" id="Gradient_uhp1i"]
+offsets = PackedFloat32Array(0, 0.503226, 0.722581)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.514307, 0.439216, 0.439216, 0.439216, 0.0705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnwcb"]
+gradient = SubResource("Gradient_uhp1i")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.4, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm8v7"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uh4b"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xhh2"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my3mi"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpt0b"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kpgc"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr6af"]
+atlas = ExtResource("3_l7yu1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_em7yr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm8v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uh4b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xhh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my3mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpt0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kpgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr6af")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yt5x"]
+bg_color = Color(0.235294, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7u6s"]
+bg_color = Color(0.666667, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.976471, 0, 0.0235294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_amps4"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_5yt5x")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_y7u6s")
+
+[node name="Enemy" type="CharacterBody2D" groups=["Ball"]]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_3c5uu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nf7pi")
+
+[node name="Shadow" type="MeshInstance2D" parent="."]
+position = Vector2(4.36, 24.835)
+scale = Vector2(94.565, 42.03)
+mesh = SubResource("SphereMesh_xrabe")
+texture = SubResource("GradientTexture2D_cnwcb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_em7yr")
+animation = &"Move"
+frame_progress = 0.259567
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = -126.0
+offset_right = 1.0
+offset_bottom = -126.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 20.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_amps4")
+step = 1.0
+value = 75.0
+rounded = true
+show_percentage = false

@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://b02m78lpgy0eu"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_bjquy"]
+[ext_resource type="Texture2D" uid="uid://cridij7nmhv8m" path="res://Scenes/UI/src/hud/HUD_Icon.png" id="2_6r6sn"]
+[ext_resource type="Texture2D" uid="uid://c0gvfwm5vlox6" path="res://Scenes/UI/src/hud/HUD_Vial.png" id="3_26wy4"]
+[ext_resource type="Texture2D" uid="uid://d2y67emyg5wvw" path="res://Scenes/UI/src/hud/HUD_HealthCap.png" id="4_87thw"]
+[ext_resource type="Texture2D" uid="uid://c7i63w3efh3q2" path="res://Scenes/UI/src/hud/HUD_ManaCap.png" id="5_bn5e8"]
+[ext_resource type="Texture2D" uid="uid://cc7b8h7pw2whb" path="res://Scenes/UI/src/hud/HUD_StaminaCap.png" id="6_7ci04"]
+
+[sub_resource type="Gradient" id="Gradient_f2omh"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.890323)
+colors = PackedColorArray(0.282353, 0, 0, 1, 0.0470588, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uypjy"]
+gradient = SubResource("Gradient_f2omh")
+use_hdr = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f17xj"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_gt3m3"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.367742)
+colors = PackedColorArray(0, 0, 0.282353, 1, 0, 0, 0.0470588, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r0kvx"]
+gradient = SubResource("Gradient_gt3m3")
+use_hdr = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_myjx2"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_t2hq0"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.565)
+colors = PackedColorArray(0, 0.282353, 0, 1, 0, 0.0470588, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c5s6q"]
+gradient = SubResource("Gradient_t2hq0")
+use_hdr = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ypcwb"]
+blend_mode = 1
+
+[node name="HUD" type="Node2D"]
+script = ExtResource("1_bjquy")
+
+[node name="P1" type="Node2D" parent="."]
+
+[node name="HUD_Icon" type="Sprite2D" parent="P1"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_6r6sn")
+
+[node name="Health" type="Node2D" parent="P1"]
+
+[node name="Health" type="TextureRect" parent="P1/Health"]
+offset_left = 257.0
+offset_top = -168.545
+offset_right = 513.0
+offset_bottom = -128.545
+scale = Vector2(1.67, 2.4)
+texture = SubResource("GradientTexture1D_uypjy")
+
+[node name="HUD_Vial_HP" type="Sprite2D" parent="P1/Health"]
+material = SubResource("CanvasItemMaterial_f17xj")
+position = Vector2(306, -120)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_HP2" type="Sprite2D" parent="P1/Health"]
+material = SubResource("CanvasItemMaterial_f17xj")
+position = Vector2(414, -119.15)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_HP3" type="Sprite2D" parent="P1/Health"]
+material = SubResource("CanvasItemMaterial_f17xj")
+position = Vector2(522, -120)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_HP4" type="Sprite2D" parent="P1/Health"]
+material = SubResource("CanvasItemMaterial_f17xj")
+position = Vector2(630, -119.15)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_HealthCap" type="Sprite2D" parent="P1/Health"]
+position = Vector2(786, -120)
+scale = Vector2(3, 3)
+texture = ExtResource("4_87thw")
+
+[node name="Mana" type="Node2D" parent="P1"]
+
+[node name="Mana" type="TextureRect" parent="P1/Mana"]
+offset_left = 258.0
+offset_top = -46.5103
+offset_right = 514.0
+offset_bottom = -6.51025
+scale = Vector2(1.67, 2.4)
+texture = SubResource("GradientTexture1D_r0kvx")
+
+[node name="HUD_Vial_Mana" type="Sprite2D" parent="P1/Mana"]
+material = SubResource("CanvasItemMaterial_myjx2")
+position = Vector2(306, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_Mana2" type="Sprite2D" parent="P1/Mana"]
+material = SubResource("CanvasItemMaterial_myjx2")
+position = Vector2(414, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_Mana3" type="Sprite2D" parent="P1/Mana"]
+material = SubResource("CanvasItemMaterial_myjx2")
+position = Vector2(522, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_Mana4" type="Sprite2D" parent="P1/Mana"]
+material = SubResource("CanvasItemMaterial_myjx2")
+position = Vector2(630, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_ManaCap" type="Sprite2D" parent="P1/Mana"]
+position = Vector2(787, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("5_bn5e8")
+
+[node name="Experience" type="Node2D" parent="P1"]
+
+[node name="Experience" type="TextureRect" parent="P1/Experience"]
+offset_left = 258.0
+offset_top = 73.0
+offset_right = 514.0
+offset_bottom = 113.0
+scale = Vector2(1.67, 2.4)
+texture = SubResource("GradientTexture1D_c5s6q")
+
+[node name="HUD_Vial_XP" type="Sprite2D" parent="P1/Experience"]
+material = SubResource("CanvasItemMaterial_ypcwb")
+position = Vector2(306, 121.6)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_XP2" type="Sprite2D" parent="P1/Experience"]
+material = SubResource("CanvasItemMaterial_ypcwb")
+position = Vector2(414, 121.6)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_XP3" type="Sprite2D" parent="P1/Experience"]
+material = SubResource("CanvasItemMaterial_ypcwb")
+position = Vector2(522, 121.6)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_XP4" type="Sprite2D" parent="P1/Experience"]
+material = SubResource("CanvasItemMaterial_ypcwb")
+position = Vector2(630, 121.6)
+scale = Vector2(3, 3)
+texture = ExtResource("3_26wy4")
+
+[node name="HUD_Vial_StanimaCap" type="Sprite2D" parent="P1/Experience"]
+position = Vector2(787, 121)
+scale = Vector2(3, 3)
+texture = ExtResource("6_7ci04")
