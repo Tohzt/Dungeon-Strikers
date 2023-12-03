@@ -88,6 +88,7 @@ func _update_target_direction() -> void:
 	target_direction = (mouse_pos - position).normalized()
 
 func basic_attack(): pass
+
 func _unhandled_input(_event):
 	if Input.is_action_just_released("Attack"):
 		basic_attack()

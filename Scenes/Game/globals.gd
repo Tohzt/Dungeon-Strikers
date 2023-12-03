@@ -4,6 +4,7 @@ extends Node
 @onready var Mage: PackedScene = preload("res://Scenes/Entity/Characters/mage_scene.tscn")
 @onready var Knight: PackedScene = preload("res://Scenes/Entity/Characters/knight_scene.tscn")
 
+
 var ball: CharacterBody2D
 
 enum BUMP {

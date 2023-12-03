@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GamScene.gd" id="1_tg51m"]
-[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/src/Background.jpg" id="1_tnej1"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
 [ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
 [ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
 [ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]

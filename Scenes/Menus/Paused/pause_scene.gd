@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 const loading_scene = "res://Scenes/Menus/Loading/loading_scene.tscn"
 
@@ -8,6 +8,9 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_button_solo_pressed():
+func _on_button_resume_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().change_scene_to_file(loading_scene)
+	queue_free()
+
+func _on_button_quit_pressed():
+	get_tree().quit()

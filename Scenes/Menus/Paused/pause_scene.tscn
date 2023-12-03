@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://huf6ixna1gbl"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Paused/pause_scene.gd" id="1_5uvmc"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="2_uwfvg"]
+[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/UI/src/theme/ui_theme.tres" id="3_pmwqa"]
+
+[node name="PausedScen" type="CanvasLayer"]
+script = ExtResource("1_5uvmc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_uwfvg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Button_Resume" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_pmwqa")
+text = "Resume"
+
+[node name="Button_Quit" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_pmwqa")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]

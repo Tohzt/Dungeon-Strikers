@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wn2qe02a4o6d"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Start/StartScene.gd" id="1_6x67y"]
-[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/src/Background.jpg" id="2_i7s4c"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="2_i7s4c"]
 [ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/UI/src/theme/ui_theme.tres" id="3_lpfjw"]
 
 [node name="StartScene" type="Control"]
