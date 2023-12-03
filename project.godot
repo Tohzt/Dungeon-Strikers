@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Dungeon Strikers"
-run/main_scene="res://Scenes/Menus/start_scene.tscn"
-config/features=PackedStringArray("4.1")
+run/main_scene="res://Scenes/Menus/Start/start_scene.tscn"
+config/features=PackedStringArray("4.2")
 
 [autoload]
 
@@ -27,6 +27,18 @@ window/size/always_on_top=true
 window/size/window_width_override=1024
 window/size/window_height_override=614
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/Attacks/": "red",
+"res://Scenes/Effects/": "yellow",
+"res://Scenes/Entity/": "blue",
+"res://Scenes/Game/": "orange",
+"res://Scenes/Loot/": "green",
+"res://Scenes/Menus/": "pink",
+"res://Scenes/UI/": "purple"
+}
 
 [gui]
 

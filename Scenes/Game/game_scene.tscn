@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scenes/Game/GamScene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/src/Background.jpg" id="1_tnej1"]
-[ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Arena/arena.tscn" id="2_r8wms"]
+[ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
 [ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
-[ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Ball/ball.tscn" id="4_ctq47"]
-[ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Enemy/Enemy.tscn" id="6_jhy00"]
-[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Characters/knight_scene.tscn" id="7_tr7mi"]
-[ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Characters/mage_scene.tscn" id="8_f5tco"]
+[ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
+[ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
+[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/knight_scene.tscn" id="7_tr7mi"]
+[ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Entity/Characters/mage_scene.tscn" id="8_f5tco"]
 
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
