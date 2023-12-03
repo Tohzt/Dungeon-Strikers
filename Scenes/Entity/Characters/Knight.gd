@@ -12,3 +12,4 @@ func basic_attack() -> void:
 	var inst_sword_slash = sword_slash.instantiate()
 	inst_sword_slash.caster = self
 	$Attacks.add_child(inst_sword_slash)
+
