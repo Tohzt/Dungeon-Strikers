@@ -5,11 +5,17 @@ class_name PlayerCharacter
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
-var is_attacking: bool = false
-var prev_velocity: Vector2
 var damage = 5
+var is_attacking: bool = false
+var is_dashing: bool = false
+var is_running: bool = false
+var prev_velocity: Vector2
+var dash_timer_cd: int = 100
+var dash_timer: int = dash_timer_cd
 
-const SPEED = 25000.0
+var speed = 25000.0
+var walk_speed = speed
+var run_speed = speed * 2
 var force = 100000
 var ball = null
 var ball_attached = null
@@ -27,8 +33,9 @@ func _process(delta):
 	if ai:
 		_ai_control()
 		return
-	
-	var spd = SPEED * delta
+		
+	speed = walk_speed if !is_running else run_speed
+	var spd = speed * delta
 	var h_spd = Input.get_axis("LEFT", "RIGHT")
 	var v_spd = Input.get_axis("UP", "DOWN")
 	
@@ -51,28 +58,51 @@ func _physics_process(delta):
 
 func _update_animation():
 	if !is_attacking:
-		match velocity.normalized().round():
-			Vector2.LEFT:
-				animation.play("walk_left")
-			Vector2.RIGHT:
-				animation.play("walk_right")
-			Vector2.UP:
-				animation.play("walk_up")
-			Vector2.DOWN:
-				animation.play("walk_down")
-			Vector2(1,1):
-				animation.play("walk_down-right")
-			Vector2(-1,1):
-				animation.play("walk_down-left")
-			Vector2(1,-1):
-				animation.play("walk_up-right")
-			Vector2(-1,-1):
-				animation.play("walk_up-left")
-			_:
-				animate_to("idle")
+		if is_running:
+			# TODO: Get rid of this lazy aproach
+			match velocity.normalized().round():
+				Vector2.LEFT:
+					animation.play("run_left")
+				Vector2.RIGHT:
+					animation.play("run_right")
+				Vector2.UP:
+					animation.play("run_up")
+				Vector2.DOWN:
+					animation.play("run_down")
+				Vector2(1,1):
+					animation.play("run_down-right")
+				Vector2(-1,1):
+					animation.play("run_down-left")
+				Vector2(1,-1):
+					animation.play("run_up-right")
+				Vector2(-1,-1):
+					animation.play("run_up-left")
+				_:
+					animate_to("idle")
+		elif !is_running:
+			match velocity.normalized().round():
+				Vector2.LEFT:
+					animation.play("walk_left")
+				Vector2.RIGHT:
+					animation.play("walk_right")
+				Vector2.UP:
+					animation.play("walk_up")
+				Vector2.DOWN:
+					animation.play("walk_down")
+				Vector2(1,1):
+					animation.play("walk_down-right")
+				Vector2(-1,1):
+					animation.play("walk_down-left")
+				Vector2(1,-1):
+					animation.play("walk_up-right")
+				Vector2(-1,-1):
+					animation.play("walk_up-left")
+				_:
+					animate_to("idle")
 	elif !animation.is_playing():
 		animate_to("idle")
 		is_attacking = false
+		is_dashing = false
 
 func animate_to(new_anim: String = "idle") -> void:
 	var current_anim = animation.animation.rsplit("_")
@@ -88,7 +118,16 @@ func _update_target_direction() -> void:
 	target_direction = (mouse_pos - position).normalized()
 
 func basic_attack(): pass
+func dash(): pass
 
 func _unhandled_input(_event):
 	if Input.is_action_just_released("Attack"):
 		basic_attack()
+	if Input.is_action_pressed("RUN"):
+		dash_timer -= 1
+		is_running = true
+	if Input.is_action_just_released("RUN"):
+		is_running = false
+		if dash_timer > 0:
+			dash()
+		dash_timer = dash_timer_cd
