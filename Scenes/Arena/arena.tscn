@@ -2131,4 +2131,7 @@ shape = SubResource("RectangleShape2D_hn5nb")
 position = Vector2(5310, 1278)
 shape = SubResource("RectangleShape2D_hn5nb")
 
+[node name="BallSpawn" type="Marker2D" parent="."]
+position = Vector2(2560, 1278)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

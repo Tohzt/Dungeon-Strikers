@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://df5qos3un0dku"]
 
-[ext_resource type="Script" path="res://Scenes/Meus/lobby_menu.gd" id="1_oai1l"]
+[ext_resource type="Script" path="res://Scenes/Menus/lobby_menu.gd" id="1_oai1l"]
 [ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/UI/src/theme/ui_theme.tres" id="2_5ok8k"]
 
 [node name="LobbyMenu" type="CanvasLayer"]

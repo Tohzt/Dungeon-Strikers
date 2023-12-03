@@ -96,7 +96,6 @@ animations = [{
 }]
 
 [node name="Ball" type="CharacterBody2D" groups=["Ball"]]
-y_sort_enabled = true
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_huawf")
@@ -105,17 +104,12 @@ script = ExtResource("1_huawf")
 shape = SubResource("CircleShape2D_nf7pi")
 
 [node name="Shadow" type="MeshInstance2D" parent="."]
-position = Vector2(0, 24.835)
+position = Vector2(0, 61)
 scale = Vector2(94.565, 42.03)
 mesh = SubResource("SphereMesh_xrabe")
 texture = SubResource("GradientTexture2D_cnwcb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_em7yr")
-animation = &"Ball"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_em7yr")
 animation = &"Ball"

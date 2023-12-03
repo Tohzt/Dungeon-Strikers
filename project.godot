@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="Dungeon Strikers"
-run/main_scene="res://game.tscn"
+run/main_scene="res://Scenes/Menus/start_scene.tscn"
 config/features=PackedStringArray("4.1")
 
 [autoload]
 
-Globals="*res://globals.gd"
-GameManager="*res://game_manager.gd"
+Globals="*res://Scenes/Game/globals.gd"
+GameManager="*res://Scenes/Game/game_manager.gd"
 
 [display]
 
 window/size/viewport_width=5120
 window/size/viewport_height=3072
+window/size/always_on_top=true
 window/size/window_width_override=1024
 window/size/window_height_override=614
 window/stretch/mode="viewport"

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scenes/Attacks/fireball.gd" id="1_gpxkm"]
 [ext_resource type="Texture2D" uid="uid://sa02nm3yvmm" path="res://Scenes/Attacks/src/fireball_small.png" id="1_kklbv"]
-[ext_resource type="Shader" path="res://Scenes/Characters/knight.gdshader" id="2_244wb"]
+[ext_resource type="Shader" path="res://Scenes/Characters/outline_player.gdshader" id="2_vm566"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o77wv"]
 radius = 45.0444
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681us"]
-shader = ExtResource("2_244wb")
+shader = ExtResource("2_vm566")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/width = 3.0
 shader_parameter/pattern = 2

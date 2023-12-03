@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
+
+[ext_resource type="Script" path="res://Scenes/Game/GamScene.gd" id="1_tg51m"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/src/Background.jpg" id="1_tnej1"]
+[ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Arena/arena.tscn" id="2_r8wms"]
+[ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
+[ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Ball/ball.tscn" id="4_ctq47"]
+[ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Enemy/Enemy.tscn" id="6_jhy00"]
+[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Characters/knight_scene.tscn" id="7_tr7mi"]
+[ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Characters/mage_scene.tscn" id="8_f5tco"]
+
+[node name="game_scene" type="Node2D"]
+script = ExtResource("1_tg51m")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+z_as_relative = false
+offset_right = 5120.0
+offset_bottom = 3072.0
+size_flags_horizontal = 3
+texture = ExtResource("1_tnej1")
+
+[node name="HUD" parent="." instance=ExtResource("3_vclai")]
+position = Vector2(349, 291)
+
+[node name="Arena" parent="." instance=ExtResource("2_r8wms")]
+position = Vector2(0, 471)
+
+[node name="Ball" parent="." instance=ExtResource("4_ctq47")]
+position = Vector2(2560, 1751)
+is_ball = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(1041, 1147)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(1062, 2188)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(3899, 1090)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(3913, 2316)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Knight" parent="Players" instance=ExtResource("7_tr7mi")]
+position = Vector2(150, 1746)
+
+[node name="Mage" parent="Players" instance=ExtResource("8_f5tco")]
+position = Vector2(4903, 1768)
+ai = true

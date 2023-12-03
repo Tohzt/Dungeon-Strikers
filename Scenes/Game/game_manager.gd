@@ -5,9 +5,8 @@ var input_options = {0: "Keyboard", 1: "Controller"}
 var input_type = 0
 
 func _ready():
-	HUD = Globals.game.get_node("HUD")
-	pass # Replace with function body.
-
+#	HUD = Globals.game.get_node("HUD")
+	pass
 
 func _process(_delta):
 	pass

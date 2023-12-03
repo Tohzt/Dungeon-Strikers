@@ -1,7 +1,7 @@
 [gd_scene load_steps=378 format=3 uid="uid://br2cpmytkm5gp"]
 
-[ext_resource type="Script" path="res://Scenes/Characters/knight.gd" id="1_txn1n"]
-[ext_resource type="Shader" path="res://Scenes/Characters/knight.gdshader" id="1_vabfq"]
+[ext_resource type="Script" path="res://Scenes/Characters/Knight.gd" id="1_txn1n"]
+[ext_resource type="Shader" path="res://Scenes/Characters/outline_player.gdshader" id="1_vabfq"]
 [ext_resource type="Texture2D" uid="uid://bi1wc62o3s0go" path="res://Scenes/Characters/src/knight/Idle/Knight_Idle_dir8.png" id="2_k8a87"]
 [ext_resource type="Texture2D" uid="uid://cw67okcfaeyq1" path="res://Scenes/Characters/src/knight/Idle/Knight_Idle_dir1.png" id="3_jd7hw"]
 [ext_resource type="Texture2D" uid="uid://bet8aig0fu5f3" path="res://Scenes/Characters/src/knight/Idle/Knight_Idle_dir7.png" id="4_molwh"]
