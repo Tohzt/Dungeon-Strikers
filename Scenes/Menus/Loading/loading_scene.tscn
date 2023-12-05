@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yhsn0epam1he"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Loading/loading_scene.gd" id="1_v7xh5"]
-[ext_resource type="FontFile" uid="uid://c1ceasyd48jom" path="res://Scenes/UI/src/theme/light_pixel-7.ttf" id="2_vccd2"]
+[ext_resource type="FontFile" uid="uid://c1ceasyd48jom" path="res://Scenes/Style/light_pixel-7.ttf" id="2_vccd2"]
 
 [node name="LoadingScene" type="Control"]
 layout_mode = 3

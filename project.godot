@@ -37,12 +37,13 @@ folder_colors={
 "res://Scenes/Game/": "orange",
 "res://Scenes/Loot/": "green",
 "res://Scenes/Menus/": "pink",
+"res://Scenes/Style/": "teal",
 "res://Scenes/UI/": "purple"
 }
 
 [gui]
 
-theme/custom_font="res://Scenes/UI/src/theme/light_pixel-7.ttf"
+theme/custom_font="res://Scenes/Style/light_pixel-7.ttf"
 
 [input]
 
@@ -94,7 +95,7 @@ AIM_DOWN={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
-Attack={
+ATTACK={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c1ceasyd48jom"
-path="res://.godot/imported/light_pixel-7.ttf-c693c6143619f0c5167c44ec2820f4dc.fontdata"
+path="res://.godot/imported/light_pixel-7.ttf-d14285c6eac62ddca6db70920907bc46.fontdata"
 
 [deps]
 
-source_file="res://Scenes/UI/src/theme/light_pixel-7.ttf"
-dest_files=["res://.godot/imported/light_pixel-7.ttf-c693c6143619f0c5167c44ec2820f4dc.fontdata"]
+source_file="res://Scenes/Style/light_pixel-7.ttf"
+dest_files=["res://.godot/imported/light_pixel-7.ttf-d14285c6eac62ddca6db70920907bc46.fontdata"]
 
 [params]
 

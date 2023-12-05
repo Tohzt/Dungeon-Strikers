@@ -1,0 +1,23 @@
+Player
+- extends CharacterBody2D
+- State: Extends Node
+    - Current[]: Extends player_state
+      - Player_State: Extends base_state
+
+
+
+Player
+ - player has a state management controller
+
+StateController
+  - Parent to multiple states
+
+State
+  - Extends PlayerState > base_state
+
+
+base_state:
+  - Master (Current Player)
+  - Current State
+  - List of states
+  - is_moving

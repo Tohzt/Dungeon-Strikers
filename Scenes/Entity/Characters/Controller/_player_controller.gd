@@ -27,7 +27,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	_update_animation()
 	_update_target_direction()
 	
 	if ai:
@@ -48,61 +47,12 @@ func _process(delta):
 		velocity.y = v_spd if v_spd else move_toward(velocity.y, 0, v_spd)
 		velocity = velocity.normalized() * spd
 
-
 func _physics_process(delta):
 	if move_and_slide():
 		for i in get_slide_collision_count():
 			var col = get_slide_collision(i)
 			if col.get_collider() is RigidBody2D:
 				col.get_collider().apply_force(col.get_normal() * -force*delta)
-
-func _update_animation():
-	if !is_attacking:
-		if is_running:
-			# TODO: Get rid of this lazy aproach
-			match velocity.normalized().round():
-				Vector2.LEFT:
-					animation.play("run_left")
-				Vector2.RIGHT:
-					animation.play("run_right")
-				Vector2.UP:
-					animation.play("run_up")
-				Vector2.DOWN:
-					animation.play("run_down")
-				Vector2(1,1):
-					animation.play("run_down-right")
-				Vector2(-1,1):
-					animation.play("run_down-left")
-				Vector2(1,-1):
-					animation.play("run_up-right")
-				Vector2(-1,-1):
-					animation.play("run_up-left")
-				_:
-					animate_to("idle")
-		elif !is_running:
-			match velocity.normalized().round():
-				Vector2.LEFT:
-					animation.play("walk_left")
-				Vector2.RIGHT:
-					animation.play("walk_right")
-				Vector2.UP:
-					animation.play("walk_up")
-				Vector2.DOWN:
-					animation.play("walk_down")
-				Vector2(1,1):
-					animation.play("walk_down-right")
-				Vector2(-1,1):
-					animation.play("walk_down-left")
-				Vector2(1,-1):
-					animation.play("walk_up-right")
-				Vector2(-1,-1):
-					animation.play("walk_up-left")
-				_:
-					animate_to("idle")
-	elif !animation.is_playing():
-		animate_to("idle")
-		is_attacking = false
-		is_dashing = false
 
 func animate_to(new_anim: String = "idle") -> void:
 	var current_anim = animation.animation.rsplit("_")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nx268sxfje8l"
-path="res://.godot/imported/UI_Flat_Button_Small_Lock_02a2.png-d744d6bf84bf24329bd56c55592e6b67.ctex"
+uid="uid://c2xww2vtmehmd"
+path="res://.godot/imported/UI_Flat_Banner_01_Upward.png-e73fc74e8f8f1fec951fe123c9462b39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UI/src/theme/UI_Flat_Button_Small_Lock_02a2.png"
-dest_files=["res://.godot/imported/UI_Flat_Button_Small_Lock_02a2.png-d744d6bf84bf24329bd56c55592e6b67.ctex"]
+source_file="res://Scenes/Style/UI_Flat_Banner_01_Upward.png"
+dest_files=["res://.godot/imported/UI_Flat_Banner_01_Upward.png-e73fc74e8f8f1fec951fe123c9462b39.ctex"]
 
 [params]
 

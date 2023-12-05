@@ -1,8 +1,8 @@
 extends Node
 
 @onready var game: Node2D# = get_tree().root.get_child(-1)
-@onready var Mage: PackedScene = preload("res://Scenes/Entity/Characters/mage_scene.tscn")
-@onready var Knight: PackedScene = preload("res://Scenes/Entity/Characters/knight_scene.tscn")
+@onready var Mage: PackedScene = preload("res://Scenes/Entity/Characters/Mage/mage_scene.tscn")
+@onready var Knight: PackedScene = preload("res://Scenes/Entity/Characters/Knight/knight_scene.tscn")
 
 
 var ball: CharacterBody2D

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Menus/Paused/pause_scene.gd" id="1_5uvmc"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="2_uwfvg"]
-[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/UI/src/theme/ui_theme.tres" id="3_pmwqa"]
+[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="3_pmwqa"]
 
 [node name="PausedScen" type="CanvasLayer"]
 script = ExtResource("1_5uvmc")

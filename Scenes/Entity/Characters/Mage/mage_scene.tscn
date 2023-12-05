@@ -1,7 +1,7 @@
 [gd_scene load_steps=282 format=3 uid="uid://drbs014if86gk"]
 
-[ext_resource type="Script" path="res://Scenes/Entity/Characters/Mage.gd" id="1_u2p63"]
-[ext_resource type="Shader" path="res://Scenes/Entity/Characters/outline_player.gdshader" id="2_m3qmx"]
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Mage/Mage.gd" id="1_u2p63"]
+[ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="2_m3qmx"]
 [ext_resource type="Texture2D" uid="uid://txj3xym105b3" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir8.png" id="3_1b0ru"]
 [ext_resource type="Texture2D" uid="uid://uruy5yc8wgr0" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir1.png" id="4_wiy8j"]
 [ext_resource type="Texture2D" uid="uid://d4do2coa1dwd4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir7.png" id="5_dy7fr"]
@@ -1947,4 +1947,3 @@ position = Vector2(0, 15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
 animation = &"walk_down"
-frame_progress = 0.319481

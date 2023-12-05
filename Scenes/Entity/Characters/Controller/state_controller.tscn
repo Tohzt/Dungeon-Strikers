@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjlb3knx3bg0a"]
+
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Controller/state_controller.gd" id="1_y07yk"]
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Controller/state_idle.gd" id="2_ay17g"]
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Controller/state_walk.gd" id="3_m1fo4"]
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Controller/state_run.gd" id="4_4af1p"]
+
+[node name="StateController" type="Node"]
+script = ExtResource("1_y07yk")
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("2_ay17g")
+
+[node name="Walk" type="Node" parent="."]
+script = ExtResource("3_m1fo4")
+
+[node name="Run" type="Node" parent="."]
+script = ExtResource("4_4af1p")
+
+[node name="Dash" type="Node" parent="."]
+
+[node name="Attack" type="Node" parent="."]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
 [ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
-[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/knight_scene.tscn" id="7_tr7mi"]
+[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/Knight/knight_scene.tscn" id="7_tr7mi"]
 
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
