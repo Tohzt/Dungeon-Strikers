@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://pygnrj8vtw13" path="res://Scenes/Entity/Characters/src/knight/Walk/Knight_Walk_dir5.png" id="36_l2kus"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw3xp"]
-radius = 62.0746
+radius = 85.119
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cpfl"]
 

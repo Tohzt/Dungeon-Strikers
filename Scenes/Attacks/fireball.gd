@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends Node2D
 
 @onready var anim = $AnimatedSprite2D
 
+var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2
 var speed: int = 1000
 var caster: CharacterBody2D
@@ -16,10 +17,11 @@ func _ready():
 	damage = caster.damage
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity*delta)
-	if collision:
-		if collision.get_collider().is_in_group("Ball"):
-			var ball = collision.get_collider()
-			ball.hit_by(self)
-		if collision.get_collider() != caster:
-			queue_free()
+	position += velocity
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Ball"):
+		direction = (body.global_position - caster.global_position).normalized()
+		body.hit_by(self, direction * 2000)
+		queue_free()
