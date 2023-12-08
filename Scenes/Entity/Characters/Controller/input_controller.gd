@@ -14,7 +14,9 @@ func _process(_delta):
 		update_move()
 		update_run()
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	run = false
 	if Input.is_action_pressed("RUN"):
 		run = true
+	if Input.is_action_just_pressed("ATTACK"):
+		get_parent().is_attacking = true

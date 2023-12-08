@@ -2,20 +2,19 @@
 extends base_state
 
 func init_state():
-	_update_anim("walk")
+	Master.speed = Master.speed_def
 
-func process(move, _look, delta):
+func process(move, _look):
 	if move.length() == 0: 
 		Master.is_moving = false
-	else:
-		_update_anim("walk")
-		Master.velocity = move * Master.speed_def * delta
 
 func check_state() -> int:
 	if !Master.is_moving:
 		return States.IDLE
 	if Master.is_running:
 		return States.RUN
+	if Master.is_attacking:
+		return States.ATTACK
 	return States.NULL
 
 func exit_state():

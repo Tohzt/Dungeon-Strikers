@@ -3110,6 +3110,7 @@ mesh = SubResource("SphereMesh_8li2w")
 texture = SubResource("GradientTexture2D_tra8l")
 
 [node name="Attacks" type="Node2D" parent="."]
+visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_8kiqb")
@@ -3117,3 +3118,5 @@ position = Vector2(0, 12)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
 animation = &"idle_down-right"
+
+[editable path="StateController"]

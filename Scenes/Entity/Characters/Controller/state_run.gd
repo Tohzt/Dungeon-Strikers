@@ -2,14 +2,13 @@
 extends base_state
 
 func init_state():
-	_update_anim("run")
+	Master.speed = Master.speed_max
 
-func process(move, _look, delta):
+func process(move, _look):
+	#TODO: Add Coyote time to Attack
+	Master.is_attacking = false
 	if move.length() == 0: 
 		Master.is_moving = false
-	else:
-		_update_anim("run")
-		Master.velocity = move * Master.speed_def * delta
 
 
 func check_state() -> int:

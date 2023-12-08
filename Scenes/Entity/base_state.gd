@@ -6,29 +6,14 @@ var Current
 var States
 var dir: String = ""
 
-func init(master, states, current, new_state):
+func init(master, states, current):
 	Master = master
 	Current = current
 	States = states
 	init_state()
-	
-	# TODO: Update Animations??
-	match new_state:
-		States.IDLE: 
-			pass
-		States.WALK: 
-			pass
-		States.RUN:
-			pass
-		States.HURT:
-			pass
-		States.ABILITY:
-			pass
-		States.ATTACK:
-			pass
 
 func _update_anim(verb: String):
-	match Master.move_dir.normalized().round():
+	match Master.prev_dir.normalized().round():
 		Vector2.LEFT:   dir = "left"
 		Vector2.RIGHT:  dir = "right"
 		Vector2.UP:     dir = "up"
