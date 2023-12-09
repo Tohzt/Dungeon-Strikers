@@ -40,6 +40,10 @@ folder_colors={
 "res://Scenes/UI/": "purple"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom_font="res://Scenes/Style/light_pixel-7.ttf"

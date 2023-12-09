@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dri5em53shgfr"
-path="res://.godot/imported/Knight_Attack_dir8.png-2dafd4e226d1df9955cf0b2604faf4c6.ctex"
+uid="uid://83ouc0volmdi"
+path="res://.godot/imported/Fox_Roar_dir1.png-e96759900672488dfc2a10d1c484e404.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Entity/Characters/src/knight/Attack/Knight_Attack_dir8.png"
-dest_files=["res://.godot/imported/Knight_Attack_dir8.png-2dafd4e226d1df9955cf0b2604faf4c6.ctex"]
+source_file="res://Scenes/Entity/Characters/src/Mage/Ranged/Fox_Roar_dir1.png"
+dest_files=["res://.godot/imported/Fox_Roar_dir1.png-e96759900672488dfc2a10d1c484e404.ctex"]
 
 [params]
 

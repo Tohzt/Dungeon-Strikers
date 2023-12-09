@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ithupy7cius"
-path="res://.godot/imported/Knight_Attack_dir3.png-6fff41a5894cdbc47b6df982df654a61.ctex"
+uid="uid://bsobvryr4cqpp"
+path="res://.godot/imported/Fox_Swipe1_dir1.png-fd3561219dfcafe3343722a40c0c67aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Entity/Characters/src/knight/Attack/Knight_Attack_dir3.png"
-dest_files=["res://.godot/imported/Knight_Attack_dir3.png-6fff41a5894cdbc47b6df982df654a61.ctex"]
+source_file="res://Scenes/Entity/Characters/src/Mage/Melee/Fox_Swipe1_dir1.png"
+dest_files=["res://.godot/imported/Fox_Swipe1_dir1.png-fd3561219dfcafe3343722a40c0c67aa.ctex"]
 
 [params]
 

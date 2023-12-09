@@ -1,7 +1,6 @@
 Shit I know I need to get done!
 
 Mage:
-  - Update StateMachine to match Knights
   - Limit attack range
 
 AI input:
@@ -12,3 +11,6 @@ Ball:
 
 Enemies: 
   - Increase friction
+
+
+

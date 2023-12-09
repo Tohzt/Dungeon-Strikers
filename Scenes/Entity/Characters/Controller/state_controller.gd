@@ -51,6 +51,22 @@ func _update_animations():
 			new_anim = "run"
 		"Dash":
 			pass
-	State._update_anim(new_anim)
+	if new_anim != "":
+		_update_anim(new_anim)
+
+func _update_anim(verb: String):
+	var dir: String = ""
+	match Master.prev_dir.normalized().round():
+		Vector2.LEFT:   dir = "left"
+		Vector2.RIGHT:  dir = "right"
+		Vector2.UP:     dir = "up"
+		Vector2.DOWN:   dir = "down"
+		Vector2(1,1):   dir = "down-right"
+		Vector2(-1,1):  dir = "down-left"
+		Vector2(1,-1):  dir = "up-right"
+		Vector2(-1,-1): dir = "up-left"
+		_:
+			dir = "down"
+	Master.animate_to(verb, dir)
 
 

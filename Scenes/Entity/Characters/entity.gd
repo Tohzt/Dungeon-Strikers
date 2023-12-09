@@ -5,8 +5,7 @@ class_name EntityClass
 @export var InputController: Node
 
 @onready var Anim = $AnimatedSprite2D
-@onready var StateController = $StateController
-@onready var Attacks: Node2D = get_node("Attacks")
+@onready var StateController: Node = $StateController
 
 #var speed: int = 25000
 var is_moving: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GamScene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
 [ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
+[ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Entity/Characters/Mage/mage_scene.tscn" id="7_0adg8"]
 [ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/Knight/knight_scene.tscn" id="7_tr7mi"]
 
 [node name="game_scene" type="Node2D"]
@@ -43,5 +44,8 @@ position = Vector2(3913, 2316)
 
 [node name="Players" type="Node2D" parent="."]
 
+[node name="Mage" parent="Players" instance=ExtResource("7_0adg8")]
+position = Vector2(170, 1754)
+
 [node name="Knight" parent="Players" instance=ExtResource("7_tr7mi")]
-position = Vector2(150, 1746)
+position = Vector2(798, 1720)

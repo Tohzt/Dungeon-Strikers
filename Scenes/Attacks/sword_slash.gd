@@ -16,6 +16,7 @@ func _ready():
 	damage = caster.damage
 
 func _process(_delta):
+	position = caster.position
 	if !anim.is_playing():
 		queue_free()
 
