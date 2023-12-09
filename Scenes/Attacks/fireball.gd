@@ -18,12 +18,18 @@ func _ready():
 
 func _process(delta):
 	position += velocity * delta
+	if anim.animation == "pop" and !anim.is_playing():
+		queue_free()
+
+func _pop():
+	velocity = Vector2.ZERO
+	anim.play("pop")
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Ball"):
 		direction = (body.global_position - caster.global_position).normalized()
 		body.hit_by(self, direction * 2000)
-		queue_free()
+		_pop()
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	queue_free()
+	_pop()

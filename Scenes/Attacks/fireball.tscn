@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca3sm06ykt7lk"]
+[gd_scene load_steps=18 format=3 uid="uid://ca3sm06ykt7lk"]
 
 [ext_resource type="Script" path="res://Scenes/Attacks/fireball.gd" id="1_gpxkm"]
 [ext_resource type="Texture2D" uid="uid://sa02nm3yvmm" path="res://Scenes/Attacks/src/fireball_small.png" id="1_kklbv"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="2_a6csv"]
+[ext_resource type="Texture2D" uid="uid://cv37hp2mwamyv" path="res://Scenes/Attacks/src/firepop.png" id="4_27fjm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681us"]
 shader = ExtResource("2_a6csv")
@@ -40,6 +41,18 @@ region = Rect2(462, 0, 86, 160)
 atlas = ExtResource("1_kklbv")
 region = Rect2(554, 0, 86, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yayw"]
+atlas = ExtResource("4_27fjm")
+region = Rect2(0, 0, 60, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqjbt"]
+atlas = ExtResource("4_27fjm")
+region = Rect2(60, 0, 60, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvg40"]
+atlas = ExtResource("4_27fjm")
+region = Rect2(120, 0, 60, 45)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gxcv1"]
 animations = [{
 "frames": [{
@@ -67,6 +80,20 @@ animations = [{
 "loop": true,
 "name": &"fireball",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yayw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqjbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvg40")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o77wv"]
@@ -79,7 +106,9 @@ script = ExtResource("1_gpxkm")
 material = SubResource("ShaderMaterial_681us")
 position = Vector2(0, 50.2)
 sprite_frames = SubResource("SpriteFrames_gxcv1")
-animation = &"fireball"
+animation = &"pop"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(3.7, 2.8)
 
 [node name="Area2D" type="Area2D" parent="."]
