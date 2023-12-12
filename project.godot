@@ -46,6 +46,7 @@ import/blender/enabled=false
 
 [gui]
 
+theme/custom="res://Scenes/Style/ui_theme.tres"
 theme/custom_font="res://Scenes/Style/light_pixel-7.ttf"
 
 [input]

@@ -28,6 +28,10 @@ var time: float = 0
 var started: bool = false
 
 func _ready() -> void:
+	# Spawn Selected Player
+	player = Globals.selected_player.instantiate()
+	$Players.add_child(player)
+	
 	Globals.game = self
 	Globals.ball = ball
 	randomize()

@@ -4,6 +4,14 @@ extends Node
 @onready var Mage: PackedScene = preload("res://Scenes/Entity/Characters/Mage/mage_scene.tscn")
 @onready var Knight: PackedScene = preload("res://Scenes/Entity/Characters/Knight/knight_scene.tscn")
 
+# Scenes
+const loading_scene = "res://Scenes/Menus/Loading/loading_scene.tscn"
+const start_scene = "res://Scenes/Menus/Start/start_scene.tscn"
+const player_select_scene = "res://Scenes/Menus/Player Select/player_select_scene.tscn"
+const game_scene = "res://Scenes/Game/game_scene.tscn"
+
+var current_scene: String
+var selected_player: PackedScene
 
 var ball: CharacterBody2D
 
@@ -25,6 +33,6 @@ var stats = {
 func _ready() -> void:
 	pass
 
-func reset_stats() -> void:
-	for key in stats.keys():
-		stats[key] = 0
+#func reset_stats() -> void:
+	#for key in stats.keys():
+		#stats[key] = 0

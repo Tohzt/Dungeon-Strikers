@@ -8,8 +8,6 @@ func init_state():
 func process(_move, _look):
 	if !Master.Anim.is_playing():
 		Master.is_attacking = false
-	#if Master.Attacks.get_child_count() == 0:
-		#Master.is_attacking = false
 
 func check_state() -> int:
 	if !Master.is_attacking:

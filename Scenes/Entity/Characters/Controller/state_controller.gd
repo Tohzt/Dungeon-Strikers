@@ -56,7 +56,7 @@ func _update_animations():
 
 func _update_anim(verb: String):
 	var dir: String = ""
-	match Master.prev_dir.normalized().round():
+	match Master.look_dir.normalized().round():
 		Vector2.LEFT:   dir = "left"
 		Vector2.RIGHT:  dir = "right"
 		Vector2.UP:     dir = "up"

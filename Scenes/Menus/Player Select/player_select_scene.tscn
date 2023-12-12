@@ -1,0 +1,251 @@
+[gd_scene load_steps=41 format=3 uid="uid://1lgth5jxa1py"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Player Select/player_select_scene.gd" id="1_q4w6d"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="2_3w20x"]
+[ext_resource type="Texture2D" uid="uid://bi1wc62o3s0go" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir8.png" id="3_4pvqu"]
+[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="3_84vyf"]
+[ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="3_qy182"]
+[ext_resource type="Texture2D" uid="uid://bet8aig0fu5f3" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir7.png" id="4_bgjtd"]
+[ext_resource type="Texture2D" uid="uid://txj3xym105b3" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir8.png" id="4_ty812"]
+[ext_resource type="Texture2D" uid="uid://d4do2coa1dwd4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir7.png" id="5_g672b"]
+[ext_resource type="Texture2D" uid="uid://cr8yexrvjldnf" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir6.png" id="5_y0ipa"]
+[ext_resource type="Texture2D" uid="uid://bxo3sivy22oyn" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir6.png" id="6_ebx8c"]
+[ext_resource type="Texture2D" uid="uid://cw4f42tiux6yg" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir5.png" id="6_ecevv"]
+[ext_resource type="Texture2D" uid="uid://bh878qxe1ktg8" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir5.png" id="7_rsr1h"]
+[ext_resource type="Texture2D" uid="uid://cfim48y81vbk2" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir4.png" id="7_vfb7k"]
+[ext_resource type="Texture2D" uid="uid://c1fb7ni3ikl4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir4.png" id="8_77wrb"]
+[ext_resource type="Texture2D" uid="uid://sobfet13c4fx" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir3.png" id="8_uf1d6"]
+[ext_resource type="Texture2D" uid="uid://qy4drm6p7le6" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir3.png" id="9_s01g3"]
+[ext_resource type="Texture2D" uid="uid://c56qh8da3sh3i" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir2.png" id="9_ym4ok"]
+[ext_resource type="Texture2D" uid="uid://cw67okcfaeyq1" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir1.png" id="10_4ftoi"]
+[ext_resource type="Texture2D" uid="uid://bm5w6p317g2fm" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir2.png" id="10_nlmnc"]
+[ext_resource type="Texture2D" uid="uid://uruy5yc8wgr0" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir1.png" id="11_7pd30"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3fea"]
+shader = ExtResource("3_qy182")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrkyo"]
+atlas = ExtResource("3_4pvqu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c6ua"]
+atlas = ExtResource("4_bgjtd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvp8b"]
+atlas = ExtResource("5_y0ipa")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7rfq"]
+atlas = ExtResource("6_ecevv")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1yvj"]
+atlas = ExtResource("7_vfb7k")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khfll"]
+atlas = ExtResource("8_uf1d6")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcaco"]
+atlas = ExtResource("9_ym4ok")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulj8h"]
+atlas = ExtResource("10_4ftoi")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36cmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrkyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c6ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvp8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7rfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1yvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khfll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulj8h")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mib0a"]
+shader = ExtResource("3_qy182")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro02e"]
+atlas = ExtResource("4_ty812")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ukpg"]
+atlas = ExtResource("5_g672b")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajwl0"]
+atlas = ExtResource("6_ebx8c")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_844pm"]
+atlas = ExtResource("7_rsr1h")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msbw5"]
+atlas = ExtResource("8_77wrb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxgmx"]
+atlas = ExtResource("9_s01g3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noxix"]
+atlas = ExtResource("10_nlmnc")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yks7"]
+atlas = ExtResource("11_7pd30")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvhux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro02e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajwl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_844pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msbw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxgmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noxix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yks7")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 3.0
+}]
+
+[node name="PlayerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q4w6d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 5120.0
+offset_bottom = 3072.0
+texture = ExtResource("2_3w20x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -38.0
+offset_right = -1.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 2300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 600
+
+[node name="Knight" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_v3fea")
+position = Vector2(1000, 1800)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_36cmo")
+animation = &"spin"
+frame_progress = 0.706104
+
+[node name="Mage" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_mib0a")
+position = Vector2(4000, 1800)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_gvhux")
+animation = &"spin"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[node name="Button_Knight" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("3_84vyf")
+toggle_mode = true
+text = "Knight"
+
+[node name="Button_Play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_84vyf")
+disabled = true
+text = "Play
+"
+
+[node name="Button_Mage" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("3_84vyf")
+toggle_mode = true
+text = "Mage"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button_Knight" to="." method="_on_button_knight_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button_Mage" to="." method="_on_button_mage_pressed"]

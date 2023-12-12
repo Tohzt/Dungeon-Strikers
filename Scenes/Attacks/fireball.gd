@@ -10,9 +10,9 @@ var damage = 0
 
 func _ready():
 	anim.play("fireball")
-	direction = caster.move_dir
+	direction = caster.look_dir
 	position = caster.global_position
-	rotation = caster.move_dir.angle() - PI/2
+	rotation = caster.look_dir.angle() - PI/2
 	velocity = direction * speed
 	damage = caster.damage
 
@@ -31,5 +31,5 @@ func _on_area_2d_body_entered(body):
 		body.hit_by(self, direction * 2000)
 		_pop()
 
-func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_area_2d_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):
 	_pop()
