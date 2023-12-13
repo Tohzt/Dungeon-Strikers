@@ -1,11 +1,10 @@
 extends CharacterBody2D
 class_name EntityClass
 
-@export_category("Input")
-@export var InputController: Node
-
 @onready var Anim = $AnimatedSprite2D
 @onready var StateController: Node = $StateController
+
+var Controller: Node
 
 #var speed: int = 25000
 var is_moving: bool = false
@@ -31,14 +30,19 @@ var mana: int = int(max_mana)
 var stam: int = int(max_stam)
 
 func _ready():
+	if $Controller.get_child_count() == 0:
+		var controller = load("res://Scenes/Entity/Characters/Controller/input_controller.tscn").instantiate()
+		$Controller.add_child(controller)
+	
+	Controller = $Controller.get_child(0)
 	StateController.init()
 
 func _process(delta):
 	if move_dir.length() > 0:
 		prev_dir = move_dir
-	move_dir = InputController.update_move()
-	look_dir = InputController.update_look()
-	is_running = InputController.update_run()
+	move_dir = Controller.update_move()
+	look_dir = Controller.update_look()
+	is_running = Controller.update_run()
 	StateController.process(delta)
 
 func animate_to(verb: String = "", dir: String = ""):

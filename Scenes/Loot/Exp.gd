@@ -6,4 +6,4 @@ func _ready():
 	position += Vector2(rand_num, rand_num)
 
 func pop():
-	print("Popped")
+	pass

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6h5skdnw55o4"]
+
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Controller/bot_player_controller.gd" id="1_xt7n2"]
+
+[node name="BotPlayerController" type="Node"]
+script = ExtResource("1_xt7n2")

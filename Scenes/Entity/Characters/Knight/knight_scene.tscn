@@ -1,7 +1,6 @@
-[gd_scene load_steps=452 format=3 uid="uid://br2cpmytkm5gp"]
+[gd_scene load_steps=451 format=3 uid="uid://br2cpmytkm5gp"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Knight/Knight.gd" id="1_a17f4"]
-[ext_resource type="PackedScene" uid="uid://iiye8xx0pjot" path="res://Scenes/Entity/Characters/Controller/input_controller.tscn" id="2_ahw7s"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="3_qvo7h"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="4_krpie"]
 [ext_resource type="Texture2D" uid="uid://bi1wc62o3s0go" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir8.png" id="5_1slhs"]
@@ -3087,15 +3086,14 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("InputController") groups=["Player"]]
+[node name="Knight" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_a17f4")
-InputController = NodePath("InputController")
 
-[node name="InputController" parent="." instance=ExtResource("2_ahw7s")]
+[node name="Controller" type="Node" parent="."]
 
 [node name="StateController" parent="." instance=ExtResource("3_qvo7h")]
 

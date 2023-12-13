@@ -24,4 +24,4 @@ func _unhandled_input(_event):
 			var pause = pause_scene.instantiate()
 			Globals.game.add_child(pause)
 		else:
-			print("Game not set")
+			print_debug("Game not set")

@@ -12,11 +12,11 @@ func init(master, states, current):
 	init_state()
 
 func init_state():
-	print("init_state is not set")
+	print_debug("init_state is not set")
 func exit_state(): 
-	print("exit_state is not set")
+	print_debug("exit_state is not set")
 func update_master():
-	print("update_state is not set")
+	print_debug("update_state is not set")
 
 
 

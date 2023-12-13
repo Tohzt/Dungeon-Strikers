@@ -1,8 +1,7 @@
-[gd_scene load_steps=508 format=3 uid="uid://drbs014if86gk"]
+[gd_scene load_steps=507 format=3 uid="uid://drbs014if86gk"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Mage/Mage.gd" id="1_u2p63"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="2_m3qmx"]
-[ext_resource type="PackedScene" uid="uid://iiye8xx0pjot" path="res://Scenes/Entity/Characters/Controller/input_controller.tscn" id="2_t7qfj"]
 [ext_resource type="Texture2D" uid="uid://txj3xym105b3" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir8.png" id="3_1b0ru"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="3_y00hl"]
 [ext_resource type="Texture2D" uid="uid://uruy5yc8wgr0" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir1.png" id="4_wiy8j"]
@@ -3479,16 +3478,15 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Mage" type="CharacterBody2D" node_paths=PackedStringArray("InputController") groups=["Player"]]
+[node name="Mage" type="CharacterBody2D" groups=["Player"]]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_u2p63")
-InputController = NodePath("InputController")
 
-[node name="InputController" parent="." instance=ExtResource("2_t7qfj")]
+[node name="Controller" type="Node" parent="."]
 
 [node name="StateController" parent="." instance=ExtResource("3_y00hl")]
 
