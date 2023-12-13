@@ -24,8 +24,8 @@ var score: int = 0
 var combo: int = 0
 var bricks: Array
 var bricks_to_destroy: Array
-var time: float = 0
-var started: bool = false
+#var time: float = 0
+#var started: bool = false
 
 func _ready() -> void:
 	# Spawn Selected Player
@@ -41,20 +41,20 @@ func _ready() -> void:
 #	ball_spawn.ball_attached = ball
 #	ball_spawn.ball = ball
 
-func _process(delta) -> void:
-	if not started: return
-	time += delta
+#func _process(delta) -> void:
+	#if not started: return
+	#time += delta
 
 func reset_ball(entity):
 	entity.position = arena.ball_spawn.global_position
 	entity.velocity = Vector2.ZERO
 
-func reset_and_attach_ball() -> void:
-	ball.velocity = Vector2.ZERO
-	ball.attached_to = player.launch_point
-	player.ball_attached = ball
-	player.game_over = false
-	player.stage_clear = false
+#func reset_and_attach_ball() -> void:
+	#ball.velocity = Vector2.ZERO
+	#ball.attached_to = player.launch_point
+	#player.ball_attached = ball
+	#player.game_over = false
+	#player.stage_clear = false
 
 # Template Functions
 #func add_energy(value: float) -> void:

@@ -1,29 +1,43 @@
 extends Node
 
+@onready var Master: CharacterBody2D = get_parent().get_parent()
+@onready var ai_state = Master.get_node("StateController")
+
+var target: Node2D
 var position: Vector2
-var move: Vector2
+var move: Vector2 = Vector2.ZERO
 var look: Vector2 = Vector2.RIGHT
 var run: bool = false
 
-func update_move() -> Vector2: return move
-func update_look() -> Vector2: return look
-func update_run()  -> bool:    return run
+func _ready():
+	pass
 
-func _process(_delta):
-	move = Vector2.ZERO
-	position = get_parent().get_parent().global_position
-
-	var look_input = position.direction_to(Globals.ball.global_position)
-	look_input = look_input.normalized()
+func _process(delta):
+	if !target:
+		target = Globals.ball
 	
+	_update_state()
+	
+	var look_input = Master.global_position.direction_to(target.global_position).normalized()
 	if look_input.length():
 		look = look_input
 	elif move.length():
 		look = move
 
-#func _unhandled_input(_event):
-	#run = false
-	#if Input.is_action_pressed("RUN"):
-		#run = true
-	#if Input.is_action_just_pressed("ATTACK"):
-		#get_parent().is_attacking = true
+func update_move() -> Vector2: return move
+func update_look() -> Vector2: return look
+func update_run()  -> bool:    return run
+
+func _update_state():
+	#print(ai_state.State.name)
+	match ai_state.State.name:
+		"Idle":
+			Master.is_moving = true
+			pass
+		"Walk":
+			move = Master.global_position.direction_to(target.global_position).normalized()
+			pass
+		"Run":
+			pass
+		"Attack":
+			pass

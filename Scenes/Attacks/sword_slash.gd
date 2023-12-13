@@ -11,8 +11,8 @@ var damage = 0
 
 func _ready():
 	anim.play("sword_slash")
-	rotation = caster.prev_dir.angle() - PI/2
-	direction = caster.prev_dir
+	rotation = caster.look_dir.angle() - PI/2
+	direction = caster.look_dir
 	damage = caster.damage
 
 func _process(_delta):

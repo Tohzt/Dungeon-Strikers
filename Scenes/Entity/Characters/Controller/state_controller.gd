@@ -38,7 +38,6 @@ func process(delta):
 		if new_state != States.NULL:
 			change_state(new_state)
 	
-	Master.velocity = Master.move_dir * Master.speed * delta
 
 func _update_animations():
 	var new_anim = ""
