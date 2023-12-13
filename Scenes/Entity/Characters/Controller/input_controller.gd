@@ -22,5 +22,7 @@ func _unhandled_input(_event):
 	run = false
 	if Input.is_action_pressed("RUN"):
 		run = true
-	if Input.is_action_just_pressed("ATTACK"):
-		get_parent().get_parent().is_attacking = true
+	if Input.is_action_just_pressed("MELEE"):
+		get_parent().get_parent().is_attacking = "melee"
+	elif Input.is_action_just_pressed("RANGED"):
+		get_parent().get_parent().is_attacking = "ranged"

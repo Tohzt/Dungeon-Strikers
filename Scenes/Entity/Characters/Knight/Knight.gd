@@ -21,8 +21,11 @@ func _process(delta):
 	super(delta)
 	move_and_slide()
 
-func basic_attack() -> void:
+func melee_attack() -> void:
 	StateController._update_anim("melee")
 	var inst_sword_slash = sword_slash.instantiate()
 	inst_sword_slash.caster = self
 	$Attacks.add_child(inst_sword_slash)
+
+func ranged_attack() -> void:
+	pass

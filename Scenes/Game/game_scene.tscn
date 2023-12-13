@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=10 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
 [ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Entity/Characters/Mage/mage_scene.tscn" id="7_e8m05"]
 [ext_resource type="PackedScene" uid="uid://b6h5skdnw55o4" path="res://Scenes/Entity/Characters/Controller/bot_player_controller.tscn" id="8_227ie"]
+[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/Knight/knight_scene.tscn" id="9_e2ewr"]
 
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
@@ -46,9 +47,14 @@ position = Vector2(3913, 2316)
 y_sort_enabled = true
 position = Vector2(257, 1753)
 
+[node name="Knight" parent="Players" instance=ExtResource("9_e2ewr")]
+
+[node name="BotPlayerController" parent="Players/Knight/Controller" index="0" instance=ExtResource("8_227ie")]
+attack_type = "melee"
+
 [node name="Mage" parent="Players" instance=ExtResource("7_e8m05")]
-position = Vector2(4561, 21)
 
 [node name="BotPlayerController" parent="Players/Mage/Controller" index="0" instance=ExtResource("8_227ie")]
 
+[editable path="Players/Knight"]
 [editable path="Players/Mage"]

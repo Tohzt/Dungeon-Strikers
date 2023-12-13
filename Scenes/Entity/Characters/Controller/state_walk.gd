@@ -13,7 +13,7 @@ func check_state() -> int:
 		return States.IDLE
 	if Master.is_running:
 		return States.RUN
-	if Master.is_attacking:
+	if Master.is_attacking != "":
 		return States.ATTACK
 	return States.NULL
 

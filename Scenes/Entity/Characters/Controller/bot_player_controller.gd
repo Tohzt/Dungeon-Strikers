@@ -3,6 +3,7 @@ extends Node
 @onready var Master: CharacterBody2D = get_parent().get_parent()
 @onready var ai_state = Master.get_node("StateController")
 
+@export var attack_type: String = "ranged"
 var target: Node2D
 var chase_dist: int = 500
 var position: Vector2
@@ -36,7 +37,6 @@ func _attack_cooldown():
 
 func _update_state():
 	#print(ai_state.State.name)
-	print(Master.atk_cd)
 	match ai_state.State.name:
 		"Idle":
 			move = Vector2.LEFT
@@ -46,7 +46,7 @@ func _update_state():
 				run = true
 			elif Master.atk_cd == 0:
 				Master.atk_cd = Master.atk_cd_def
-				Master.is_attacking = true
+				Master.is_attacking = attack_type
 				
 			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
@@ -56,5 +56,4 @@ func _update_state():
 			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
 		"Attack":
-			print("ATTACK")
 			pass

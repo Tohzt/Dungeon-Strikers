@@ -10,7 +10,7 @@ func process(move, _look):
 func check_state() -> int:
 	if Master.is_moving:
 		return States.WALK
-	if Master.is_attacking:
+	if Master.is_attacking != "":
 		return States.ATTACK
 	return States.NULL
 

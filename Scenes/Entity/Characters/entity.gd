@@ -9,7 +9,7 @@ var Controller: Node
 #var speed: int = 25000
 var is_moving: bool = false
 var is_running: bool = false
-var is_attacking: bool = false
+var is_attacking: String = ""
 var move_dir: Vector2 = Vector2.ZERO
 var look_dir: Vector2 = Vector2.ZERO
 var prev_dir: Vector2 = Vector2.ZERO

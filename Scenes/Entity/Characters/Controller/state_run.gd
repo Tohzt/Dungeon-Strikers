@@ -6,7 +6,7 @@ func init_state():
 
 func process(move, _look):
 	#TODO: Add Coyote time to Attack
-	Master.is_attacking = false
+	Master.is_attacking = ""
 	if move.length() == 0: 
 		Master.is_moving = false
 
