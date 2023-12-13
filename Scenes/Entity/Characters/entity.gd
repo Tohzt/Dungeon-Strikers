@@ -46,7 +46,6 @@ func _process(delta):
 	StateController.process(delta)
 	
 	velocity = move_dir * speed * delta
-	printt(name, ": ", move_dir.length())
 
 func animate_to(verb: String = "", dir: String = ""):
 	var prev_anim = Anim.animation.rsplit("_")

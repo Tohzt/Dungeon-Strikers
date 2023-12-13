@@ -43,6 +43,7 @@ position = Vector2(3899, 1090)
 position = Vector2(3913, 2316)
 
 [node name="Players" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(257, 1753)
 
 [node name="Mage" parent="Players" instance=ExtResource("7_e8m05")]

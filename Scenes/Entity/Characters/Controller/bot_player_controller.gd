@@ -12,7 +12,7 @@ var run: bool = false
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if !target:
 		target = Globals.ball
 	
@@ -29,15 +29,21 @@ func update_look() -> Vector2: return look
 func update_run()  -> bool:    return run
 
 func _update_state():
-	#print(ai_state.State.name)
+	print(ai_state.State.name)
+	#print(Master.global_position.distance_to(target.global_position))
 	match ai_state.State.name:
 		"Idle":
-			Master.is_moving = true
+			move = Vector2.LEFT
 			pass
 		"Walk":
+			if Master.global_position.distance_to(target.global_position) > 500:
+				run = true
 			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
 		"Run":
+			if Master.global_position.distance_to(target.global_position) < 500:
+				run = false
+			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
 		"Attack":
 			pass

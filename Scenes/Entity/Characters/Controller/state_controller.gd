@@ -30,7 +30,7 @@ func change_state(new_state: int) -> void:
 	if State:
 		State.init(Master, States, current)
 
-func process(delta):
+func process(_delta):
 	_update_animations()
 	if State:
 		State.process(Master.move_dir, Master.look_dir)
