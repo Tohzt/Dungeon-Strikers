@@ -21,6 +21,10 @@ var speed_def: int
 var speed_max: int
 
 var damage: int = 0
+var atk_cd: int = 0
+var atk_cd_min: int
+var atk_cd_def: int
+var atk_cd_max: int
 
 var max_heal: float = 100
 var max_mana: float = 100

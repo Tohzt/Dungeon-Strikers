@@ -10,6 +10,10 @@ func _ready():
 	speed_max = 50000
 	speed = speed_def
 	
+	atk_cd_min = 10
+	atk_cd_def = 50
+	atk_cd_max = 100
+
 	damage = 10
 	super()
 
