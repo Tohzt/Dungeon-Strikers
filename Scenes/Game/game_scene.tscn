@@ -53,6 +53,7 @@ position = Vector2(257, 1753)
 attack_type = "melee"
 
 [node name="Mage" parent="Players" instance=ExtResource("7_e8m05")]
+position = Vector2(4654, 21)
 
 [node name="BotPlayerController" parent="Players/Mage/Controller" index="0" instance=ExtResource("8_227ie")]
 
