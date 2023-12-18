@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=8 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
 [ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
-[ext_resource type="PackedScene" uid="uid://b02m78lpgy0eu" path="res://Scenes/UI/hud.tscn" id="3_vclai"]
 [ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
+[ext_resource type="PackedScene" uid="uid://bow1sknvofuor" path="res://Scenes/Game/Arena/arena_4-way.tscn" id="5_fsmmj"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
-[ext_resource type="PackedScene" uid="uid://drbs014if86gk" path="res://Scenes/Entity/Characters/Mage/mage_scene.tscn" id="7_e8m05"]
-[ext_resource type="PackedScene" uid="uid://b6h5skdnw55o4" path="res://Scenes/Entity/Characters/Controller/bot_player_controller.tscn" id="8_227ie"]
-[ext_resource type="PackedScene" uid="uid://br2cpmytkm5gp" path="res://Scenes/Entity/Characters/Knight/knight_scene.tscn" id="9_e2ewr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a7ld"]
+size = Vector2(5120, 3072)
 
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
@@ -20,42 +20,85 @@ offset_bottom = 3072.0
 size_flags_horizontal = 3
 texture = ExtResource("1_tnej1")
 
-[node name="HUD" parent="." instance=ExtResource("3_vclai")]
-position = Vector2(349, 291)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Arena" parent="." instance=ExtResource("2_r8wms")]
-position = Vector2(0, 471)
+[node name="CameraPos" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 1296.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 64
+text = "camera_pos: "
+
+[node name="CameraMove" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 1296.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 64
+text = "camera_move: "
+
+[node name="PlayerPos" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 384.0
+offset_right = 1296.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 64
+text = "player_pos: "
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Game_Area2D" type="Area2D" parent="Camera2D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Game_Area2D"]
+position = Vector2(2560, 1536)
+shape = SubResource("RectangleShape2D_2a7ld")
+
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Arena" parent="Rooms" instance=ExtResource("2_r8wms")]
+
+[node name="Arena_4Way" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(-5120, 0)
+
+[node name="Arena_4Way2" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(5120, 0)
+
+[node name="Arena_4Way3" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(-5120, -3072)
+
+[node name="Arena_4Way4" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(-5120, 3072)
+
+[node name="Arena_4Way5" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(5120, -3072)
+
+[node name="Arena_4Way6" parent="Rooms" instance=ExtResource("5_fsmmj")]
+position = Vector2(5120, 3072)
 
 [node name="Ball" parent="." instance=ExtResource("4_ctq47")]
-position = Vector2(2560, 1751)
+position = Vector2(2568, 1543)
 
 [node name="Enemies" type="Node2D" parent="."]
+position = Vector2(2560, 1542)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(1041, 1147)
+position = Vector2(-1358, -435)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(1062, 2188)
+position = Vector2(-1337, 606)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(3899, 1090)
+position = Vector2(1500, -492)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(3913, 2316)
+position = Vector2(1514, 734)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(257, 1753)
+position = Vector2(539, 1621)
 
-[node name="Knight" parent="Players" instance=ExtResource("9_e2ewr")]
-
-[node name="BotPlayerController" parent="Players/Knight/Controller" index="0" instance=ExtResource("8_227ie")]
-attack_type = "melee"
-
-[node name="Mage" parent="Players" instance=ExtResource("7_e8m05")]
-position = Vector2(4654, 21)
-
-[node name="BotPlayerController" parent="Players/Mage/Controller" index="0" instance=ExtResource("8_227ie")]
-
-[editable path="Players/Knight"]
-[editable path="Players/Mage"]
+[connection signal="body_exited" from="Camera2D/Game_Area2D" to="." method="_on_camera_focus_body_exited"]

@@ -4,8 +4,10 @@ extends SmackableClass
 
 func _ready() -> void:
 	anim.play("Ball")
+	friction = 0.01
 
 func _process(delta: float) -> void:
+	velocity = velocity.lerp(Vector2(0, 0), friction)
 	super(delta)
 
 func launch() -> void:

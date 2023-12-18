@@ -1,5 +1,71 @@
 extends Node2D
 
+@onready var arena: Node2D = $Rooms/Arena
+@onready var camera : Camera2D = $Camera2D
+@onready var camera_move := camera.position
+var camera_speed = 100
+
+@onready var player: CharacterBody2D
+@onready var ball: CharacterBody2D = $Ball
+
+var health: int = 3
+var energy: float = 0.0
+var score_brick_destroyed: int = 200
+var score_brick_touched: int = 50
+var score: int = 0
+var combo: int = 0
+var bricks: Array
+var bricks_to_destroy: Array
+
+func _ready() -> void:
+	player = Globals.selected_player.instantiate()
+	$Players.add_child(player)
+	
+	Globals.game = self
+	Globals.ball = ball
+	ball.launch()
+#	hide_combo()
+#	ball.attached_to = ball_spawn
+#	ball_spawn.ball_attached = ball
+#	ball_spawn.ball = ball
+
+func _process(_delta):
+	$CanvasLayer/CameraPos.text = "camera_pos: " + str(camera.position)
+	$CanvasLayer/CameraMove.text = "camera_move: " + str(camera_move)
+	$CanvasLayer/PlayerPos.text = "player_pos: " + str(player.global_position)
+	
+	if camera.position != camera_move:
+		print("moving")
+		camera.position = camera.position.move_toward(camera_move, camera_speed)
+	else:
+		print("not moving")
+
+func reset_ball(entity):
+	entity.position = arena.ball_spawn.global_position
+	entity.velocity = Vector2.ZERO
+
+func _on_camera_focus_body_exited(body):
+	var dir := Vector2.ZERO
+	if body.global_position.x < camera.position.x:
+		dir.x = -1
+	elif body.global_position.x > camera.position.x + GameManager.view.x:
+		dir.x = 1
+	if body.global_position.y < camera.position.y:
+		dir.y = -1
+	elif body.global_position.y > camera.position.y + GameManager.view.y:
+		dir.y = 1
+	
+	camera_move += dir * GameManager.view
+
+
+
+
+
+
+
+
+#region I dont know, some pong shit i think..
+
 # From Template Project
 #@export var brick_scene: PackedScene = preload("res://Scenes/Brick/brick.tscn")
 #@export var block_energy: int = 10
@@ -12,42 +78,13 @@ extends Node2D
 #@onready var combo_timer: Timer = $ComboTimer
 #@onready var combo_lbl = $Combo
 
-@onready var player: CharacterBody2D
-@onready var ball: CharacterBody2D = $Ball
-@onready var arena: Node2D = $Arena
-
-var health: int = 3
-var energy: float = 0.0
-var score_brick_destroyed: int = 200
-var score_brick_touched: int = 50
-var score: int = 0
-var combo: int = 0
-var bricks: Array
-var bricks_to_destroy: Array
 #var time: float = 0
 #var started: bool = false
-
-func _ready() -> void:
-	# Spawn Selected Player
-	player = Globals.selected_player.instantiate()
-	$Players.add_child(player)
 	
-	Globals.game = self
-	Globals.ball = ball
-	randomize()
-	ball.launch()
-#	hide_combo()
-#	ball.attached_to = ball_spawn
-#	ball_spawn.ball_attached = ball
-#	ball_spawn.ball = ball
-
 #func _process(delta) -> void:
 	#if not started: return
 	#time += delta
 
-func reset_ball(entity):
-	entity.position = arena.ball_spawn.global_position
-	entity.velocity = Vector2.ZERO
 
 #func reset_and_attach_ball() -> void:
 	#ball.velocity = Vector2.ZERO
@@ -122,3 +159,6 @@ func reset_ball(entity):
 #		return
 #
 #	reset_and_attach_ball()
+
+#endregion
+

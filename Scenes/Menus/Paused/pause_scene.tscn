@@ -23,11 +23,17 @@ layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="Button_Resume" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_pmwqa")
 text = "Resume"
+
+[node name="Button_Restart" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_pmwqa")
+text = "Resart"
 
 [node name="Button_Quit" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
 layout_mode = 2
@@ -35,4 +41,5 @@ theme = ExtResource("3_pmwqa")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Restart" to="." method="_on_button_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]

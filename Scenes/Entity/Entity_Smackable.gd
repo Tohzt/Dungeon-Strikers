@@ -24,7 +24,7 @@ var boost_factor: float = 1.0
 var boost_factor_perfect: float = 1.3
 var boost_factor_late_early: float = 1.15
 
-var friction = 0.01
+var friction = 0.05
 
 func _process(delta):
 	if attached_to:

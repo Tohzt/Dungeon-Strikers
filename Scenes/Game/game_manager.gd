@@ -3,10 +3,12 @@ extends Node
 @onready var pause_scene = preload("res://Scenes/Menus/Paused/pause_scene.tscn")
 @onready var HUD: Node2D# = preload("res://Scenes/UI/hud.tscn")
 
+const view := Vector2(5120, 3072)
 var input_options = {0: "Keyboard", 1: "Controller"}
 var input_type = 0
 
 func _ready():
+	randomize()
 #	HUD = Globals.game.get_node("HUD")
 	pass
 

@@ -1,6 +1,8 @@
 extends EntityClass
 
 @onready var fireball = preload("res://Scenes/Attacks/fireball.tscn")
+# TODO: Replace with Mages melee attack
+@onready var sword_slash = preload("res://Scenes/Attacks/sword_slash.tscn")
 
 func _ready():
 	# Declare Entity Variables
@@ -28,4 +30,9 @@ func ranged_attack() -> void:
 	$Attacks.add_child(inst_fireball)
 
 func melee_attack():
+	# TODO: Replace with Mages melee attack
+	StateController._update_anim("melee")
+	var inst_sword_slash = sword_slash.instantiate()
+	inst_sword_slash.caster = self
+	$Attacks.add_child(inst_sword_slash)
 	pass
