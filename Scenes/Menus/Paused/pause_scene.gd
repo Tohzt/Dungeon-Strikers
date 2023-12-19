@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var button_input = $MarginContainer/CenterContainer/VBoxContainer2/Button_Input
+
 const loading_scene = "res://Scenes/Menus/Loading/loading_scene.tscn"
 
 func _ready():
@@ -18,3 +20,13 @@ func _on_button_quit_pressed():
 func _on_button_restart_pressed():
 	Globals.current_scene = Globals.player_select_scene
 	get_tree().change_scene_to_file(Globals.loading_scene)
+
+
+func _on_button_input_pressed():
+	if button_input.text == "Input: KB":
+		button_input.text = "Input: Con"
+		get_parent().player.input_type = "Controller"
+	else:
+		button_input.text = "Input: KB"
+		get_parent().player.input_type = "Keyboard"
+	

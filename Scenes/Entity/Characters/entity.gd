@@ -3,10 +3,11 @@ class_name EntityClass
 
 @onready var Anim = $AnimatedSprite2D
 @onready var StateController: Node = $StateController
+@onready var direction_indicator: Sprite2D = $DirectionIndicator
 
 var Controller: Node
+var input_type := "Keyboard"
 
-#var speed: int = 25000
 var is_moving: bool = false
 var is_running: bool = false
 var is_attacking: String = ""
@@ -46,6 +47,9 @@ func _process(delta):
 		prev_dir = move_dir
 	move_dir = Controller.update_move()
 	look_dir = Controller.update_look()
+	
+	direction_indicator.rotation = look_dir.angle()
+	
 	is_running = Controller.update_run()
 	StateController.process(delta)
 	

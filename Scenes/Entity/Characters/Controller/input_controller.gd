@@ -1,5 +1,8 @@
 extends Node
 
+# TODO: Pass this info down on creation
+@onready var Master: EntityClass = get_parent().get_parent()
+
 var move: Vector2
 var look: Vector2 = Vector2.RIGHT
 var run: bool = false
@@ -13,6 +16,12 @@ func _process(_delta):
 	move = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	
 	var look_input = Input.get_vector("AIM_LEFT", "AIM_RIGHT", "AIM_UP", "AIM_DOWN")
+	if Master.input_type == "Keyboard":
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+		var mouse_pos:Vector2 = Master.get_local_mouse_position()
+		look_input = (mouse_pos).normalized()
+		
 	if look_input.length():
 		look = look_input
 	elif move.length():

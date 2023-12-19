@@ -1,4 +1,4 @@
-[gd_scene load_steps=643 format=3 uid="uid://drbs014if86gk"]
+[gd_scene load_steps=644 format=3 uid="uid://drbs014if86gk"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Mage/Mage.gd" id="1_u2p63"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="2_m3qmx"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cmnfhc6u8gkkv" path="res://Scenes/Entity/Characters/src/Mage/Run/Fox_Run_dir4.png" id="27_mj3tb"]
 [ext_resource type="Texture2D" uid="uid://brkmh6ryrqwe6" path="res://Scenes/Entity/Characters/src/Mage/Run/Fox_Run_dir3.png" id="28_4f0ro"]
 [ext_resource type="Texture2D" uid="uid://c1djp2vyarhp" path="res://Scenes/Entity/Characters/src/Mage/Run/Fox_Run_dir5.png" id="29_twinf"]
+[ext_resource type="Texture2D" uid="uid://8ygq7f0sljf" path="res://Scenes/Entity/Characters/src/PlayerDirectionIndicator.png" id="44_v2dq8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw3xp"]
 radius = 65.2093
@@ -4454,3 +4455,7 @@ sprite_frames = SubResource("SpriteFrames_8dhlm")
 animation = &"melee_up-left"
 
 [node name="Attacks" type="Node" parent="."]
+
+[node name="DirectionIndicator" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("44_v2dq8")

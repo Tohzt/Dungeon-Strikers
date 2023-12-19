@@ -35,10 +35,7 @@ func _process(_delta):
 	$CanvasLayer/PlayerPos.text = "player_pos: " + str(player.global_position)
 	
 	if camera.position != camera_move:
-		print("moving")
 		camera.position = camera.position.move_toward(camera_move, camera_speed)
-	else:
-		print("not moving")
 
 func reset_ball(entity):
 	entity.position = arena.ball_spawn.global_position
