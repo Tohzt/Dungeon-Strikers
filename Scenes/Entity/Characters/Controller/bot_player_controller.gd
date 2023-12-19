@@ -36,7 +36,6 @@ func _attack_cooldown():
 		Master.atk_cd-=1
 
 func _update_state():
-	#print(ai_state.State.name)
 	match ai_state.State.name:
 		"Idle":
 			move = Vector2.LEFT

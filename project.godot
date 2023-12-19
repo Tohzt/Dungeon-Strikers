@@ -26,6 +26,9 @@ window/size/viewport_height=3072
 window/size/window_width_override=1024
 window/size/window_height_override=614
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Scenes/UI/src/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(8, 8)
+mouse_cursor/tooltip_position_offset=Vector2(-8, -8)
 
 [file_customization]
 

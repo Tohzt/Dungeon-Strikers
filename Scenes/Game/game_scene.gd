@@ -33,6 +33,9 @@ func _process(_delta):
 	$CanvasLayer/CameraPos.text = "camera_pos: " + str(camera.position)
 	$CanvasLayer/CameraMove.text = "camera_move: " + str(camera_move)
 	$CanvasLayer/PlayerPos.text = "player_pos: " + str(player.global_position)
+	$CanvasLayer/Speed_Mod.text = "Speed Mod: : " + str(player.speed_mod)
+	$CanvasLayer/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(player.move_dir.angle()))
+	$CanvasLayer/LookAngle.text = "Look Angle: : " + str(rad_to_deg(player.look_dir.angle()))
 	
 	if camera.position != camera_move:
 		camera.position = camera.position.move_toward(camera_move, camera_speed)

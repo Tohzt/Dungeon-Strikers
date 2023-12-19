@@ -23,6 +23,7 @@ texture = ExtResource("1_tnej1")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CameraPos" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 256.0
 offset_top = 128.0
 offset_right = 1296.0
@@ -31,6 +32,7 @@ theme_override_font_sizes/font_size = 64
 text = "camera_pos: "
 
 [node name="CameraMove" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 1296.0
@@ -39,12 +41,37 @@ theme_override_font_sizes/font_size = 64
 text = "camera_move: "
 
 [node name="PlayerPos" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 1296.0
 offset_bottom = 512.0
 theme_override_font_sizes/font_size = 64
 text = "player_pos: "
+
+[node name="Speed_Mod" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 686.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 64
+text = "Speed Mod: "
+
+[node name="MoveAngle" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 384.0
+offset_right = 731.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 64
+text = "Move Angle:"
+
+[node name="LookAngle" type="Label" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 512.0
+offset_right = 731.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 64
+text = "Look Angle:"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

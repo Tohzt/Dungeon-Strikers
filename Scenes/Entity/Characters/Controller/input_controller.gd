@@ -24,8 +24,23 @@ func _process(_delta):
 		
 	if look_input.length():
 		look = look_input
+		_adjust_speed()
 	elif move.length():
 		look = move
+		Master.speed_mod = 1.0
+	if run:
+		look = move
+		Master.speed_mod = 1.0
+
+func _adjust_speed():
+	var look_angle = rad_to_deg(look.angle()) + 180
+	var move_angle = rad_to_deg(move.angle()) + 180
+	var delta_angle = abs(look_angle - move_angle)
+	look_angle = 360 + look_angle
+	if abs(look_angle - move_angle) < delta_angle:
+		delta_angle = abs(look_angle - move_angle)
+	Master.speed_mod = lerp(1.0, .5, delta_angle/180)
+	
 
 func _unhandled_input(_event):
 	run = false

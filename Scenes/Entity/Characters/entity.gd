@@ -20,6 +20,7 @@ var speed: int
 var speed_min: int
 var speed_def: int
 var speed_max: int
+var speed_mod := 1.0
 
 var damage: int = 0
 var atk_cd: int = 0
@@ -53,7 +54,7 @@ func _process(delta):
 	is_running = Controller.update_run()
 	StateController.process(delta)
 	
-	velocity = move_dir * speed * delta
+	velocity = move_dir * speed *  speed_mod * delta
 
 func animate_to(verb: String = "", dir: String = ""):
 	var prev_anim = Anim.animation.rsplit("_")
