@@ -1,11 +1,12 @@
 extends CanvasLayer
 
-@onready var button_input = $MarginContainer/CenterContainer/VBoxContainer2/Button_Input
+@onready var button_input: Button = $MarginContainer/CenterContainer/VBoxContainer2/Button_Input
 
 const loading_scene = "res://Scenes/Menus/Loading/loading_scene.tscn"
 
 func _ready():
-	pass
+	if get_parent().get_node("Players").get_child_count() != 1:
+		button_input.disabled = true
 
 func _process(_delta):
 	pass

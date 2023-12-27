@@ -8,6 +8,7 @@ extends Node
 const loading_scene = "res://Scenes/Menus/Loading/loading_scene.tscn"
 const start_scene = "res://Scenes/Menus/Start/start_scene.tscn"
 const player_select_scene = "res://Scenes/Menus/Player Select/player_select_scene.tscn"
+const multiplayer_select_scene = "res://Scenes/Menus/Local Multiplayer/multiplayer_select_scene.tscn"
 const game_scene = "res://Scenes/Game/game_scene.tscn"
 
 var current_scene: String

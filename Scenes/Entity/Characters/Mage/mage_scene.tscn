@@ -1,8 +1,9 @@
-[gd_scene load_steps=644 format=3 uid="uid://drbs014if86gk"]
+[gd_scene load_steps=647 format=3 uid="uid://drbs014if86gk"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Mage/Mage.gd" id="1_u2p63"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="2_m3qmx"]
 [ext_resource type="Texture2D" uid="uid://txj3xym105b3" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir8.png" id="3_1b0ru"]
+[ext_resource type="PackedScene" uid="uid://1n2234mcc67m" path="res://Scenes/Entity/Characters/Animation Machine/animation_controller.tscn" id="3_3qifp"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="3_y00hl"]
 [ext_resource type="Texture2D" uid="uid://uruy5yc8wgr0" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir1.png" id="4_wiy8j"]
 [ext_resource type="Texture2D" uid="uid://d4do2coa1dwd4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir7.png" id="5_dy7fr"]
@@ -4423,6 +4424,12 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hs8us"]
+bg_color = Color(0, 0.317647, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wm2d"]
+bg_color = Color(0.0509804, 0.721569, 0.27451, 1)
+
 [node name="Mage" type="CharacterBody2D" groups=["Player"]]
 z_as_relative = false
 y_sort_enabled = true
@@ -4431,9 +4438,11 @@ collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_u2p63")
 
-[node name="Controller" type="Node" parent="."]
+[node name="InputController" type="Node" parent="."]
 
 [node name="StateController" parent="." instance=ExtResource("3_y00hl")]
+
+[node name="AnimationController" parent="." instance=ExtResource("3_3qifp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
@@ -4459,3 +4468,26 @@ animation = &"melee_up-left"
 [node name="DirectionIndicator" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("44_v2dq8")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -299.0
+offset_right = 75.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(75, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxFlat_hs8us")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5wm2d")
+step = 1.0
+value = 50.0
+rounded = true

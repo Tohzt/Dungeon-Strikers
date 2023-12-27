@@ -113,7 +113,7 @@ offset = Vector2(3.7, 2.8)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 96.35)
-collision_mask = 13
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_o77wv")

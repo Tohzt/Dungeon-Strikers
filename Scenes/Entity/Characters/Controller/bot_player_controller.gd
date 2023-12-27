@@ -1,6 +1,6 @@
 extends Node
 
-@onready var Master: CharacterBody2D = get_parent().get_parent()
+@onready var Master: EntityClass = get_parent().get_parent()
 @onready var ai_state = Master.get_node("StateController")
 
 @export var attack_type: String = "ranged"
@@ -15,6 +15,11 @@ func _ready():
 	pass
 
 func _process(_delta):
+	# TODO: This is jenky as fuuuck
+	if Master.incoming_force:
+		for pl in get_tree().get_nodes_in_group("Player"):
+			if pl != Master:
+				target = pl
 	if !target:
 		target = Globals.ball
 	

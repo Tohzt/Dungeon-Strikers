@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
 [ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
+[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="3_fak73"]
 [ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
 [ext_resource type="PackedScene" uid="uid://bow1sknvofuor" path="res://Scenes/Game/Arena/arena_4-way.tscn" id="5_fsmmj"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
@@ -13,17 +14,10 @@ size = Vector2(5120, 3072)
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
 
-[node name="BackgroundTexture" type="TextureRect" parent="."]
-z_as_relative = false
-offset_right = 5120.0
-offset_bottom = 3072.0
-size_flags_horizontal = 3
-texture = ExtResource("1_tnej1")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CameraPos" type="Label" parent="CanvasLayer"]
+[node name="Debug" type="CanvasLayer" parent="."]
 visible = false
+
+[node name="CameraPos" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 128.0
 offset_right = 1296.0
@@ -31,8 +25,7 @@ offset_bottom = 256.0
 theme_override_font_sizes/font_size = 64
 text = "camera_pos: "
 
-[node name="CameraMove" type="Label" parent="CanvasLayer"]
-visible = false
+[node name="CameraMove" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 1296.0
@@ -40,8 +33,7 @@ offset_bottom = 384.0
 theme_override_font_sizes/font_size = 64
 text = "camera_move: "
 
-[node name="PlayerPos" type="Label" parent="CanvasLayer"]
-visible = false
+[node name="PlayerPos" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 1296.0
@@ -49,7 +41,7 @@ offset_bottom = 512.0
 theme_override_font_sizes/font_size = 64
 text = "player_pos: "
 
-[node name="Speed_Mod" type="Label" parent="CanvasLayer"]
+[node name="Speed_Mod" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 686.0
@@ -57,7 +49,7 @@ offset_bottom = 320.0
 theme_override_font_sizes/font_size = 64
 text = "Speed Mod: "
 
-[node name="MoveAngle" type="Label" parent="CanvasLayer"]
+[node name="MoveAngle" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 731.0
@@ -65,7 +57,7 @@ offset_bottom = 448.0
 theme_override_font_sizes/font_size = 64
 text = "Move Angle:"
 
-[node name="LookAngle" type="Label" parent="CanvasLayer"]
+[node name="LookAngle" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 512.0
 offset_right = 731.0
@@ -83,6 +75,34 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Game_Area2D"]
 position = Vector2(2560, 1536)
 shape = SubResource("RectangleShape2D_2a7ld")
+
+[node name="BackgroundTexture" type="TextureRect" parent="Camera2D"]
+z_as_relative = false
+offset_right = 5120.0
+offset_bottom = 3072.0
+size_flags_horizontal = 3
+texture = ExtResource("1_tnej1")
+
+[node name="Scoreboard" type="CanvasLayer" parent="Camera2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Scoreboard"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 256
+
+[node name="Score" type="Label" parent="Camera2D/Scoreboard/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_fak73")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 256
+text = "01 : 00"
+horizontal_alignment = 1
 
 [node name="Rooms" type="Node2D" parent="."]
 
@@ -107,10 +127,10 @@ position = Vector2(5120, -3072)
 position = Vector2(5120, 3072)
 
 [node name="Ball" parent="." instance=ExtResource("4_ctq47")]
-position = Vector2(2568, 1543)
+position = Vector2(2560, 1536)
 
 [node name="Enemies" type="Node2D" parent="."]
-position = Vector2(2560, 1542)
+position = Vector2(2560, 1536)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
 position = Vector2(-1358, -435)
@@ -126,6 +146,6 @@ position = Vector2(1514, 734)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(539, 1621)
+position = Vector2(2560, 1536)
 
 [connection signal="body_exited" from="Camera2D/Game_Area2D" to="." method="_on_camera_focus_body_exited"]

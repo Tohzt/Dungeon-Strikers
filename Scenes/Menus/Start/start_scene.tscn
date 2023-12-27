@@ -37,6 +37,12 @@ theme = ExtResource("3_lpfjw")
 text = "Solo Play
 "
 
+[node name="Button_Multi" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_lpfjw")
+text = "Local Multi Play
+"
+
 [node name="Button_Lobby" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_lpfjw")
@@ -51,3 +57,4 @@ disabled = true
 text = "Settings"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Solo" to="." method="_on_button_solo_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/Button_Multi" to="." method="_on_button_multi_pressed"]

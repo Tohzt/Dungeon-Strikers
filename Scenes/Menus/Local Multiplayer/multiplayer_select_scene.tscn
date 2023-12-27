@@ -1,0 +1,237 @@
+[gd_scene load_steps=41 format=3 uid="uid://br2fedlxx7nvn"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Local Multiplayer/multiplayer_select_scene.gd" id="1_yrni5"]
+[ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="2_qh4r1"]
+[ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="3_8gaox"]
+[ext_resource type="Texture2D" uid="uid://bi1wc62o3s0go" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir8.png" id="4_akqlq"]
+[ext_resource type="Texture2D" uid="uid://bet8aig0fu5f3" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir7.png" id="5_7hixn"]
+[ext_resource type="Texture2D" uid="uid://cr8yexrvjldnf" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir6.png" id="6_qsgmt"]
+[ext_resource type="Texture2D" uid="uid://cw4f42tiux6yg" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir5.png" id="7_6lrk5"]
+[ext_resource type="Texture2D" uid="uid://cfim48y81vbk2" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir4.png" id="8_pxilw"]
+[ext_resource type="Texture2D" uid="uid://sobfet13c4fx" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir3.png" id="9_aq83i"]
+[ext_resource type="Texture2D" uid="uid://c56qh8da3sh3i" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir2.png" id="10_kdwlh"]
+[ext_resource type="Texture2D" uid="uid://cw67okcfaeyq1" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir1.png" id="11_dbymm"]
+[ext_resource type="Texture2D" uid="uid://txj3xym105b3" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir8.png" id="12_0jxbs"]
+[ext_resource type="Texture2D" uid="uid://d4do2coa1dwd4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir7.png" id="13_seuqu"]
+[ext_resource type="Texture2D" uid="uid://bxo3sivy22oyn" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir6.png" id="14_7a41r"]
+[ext_resource type="Texture2D" uid="uid://bh878qxe1ktg8" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir5.png" id="15_aw6jq"]
+[ext_resource type="Texture2D" uid="uid://c1fb7ni3ikl4" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir4.png" id="16_c6psq"]
+[ext_resource type="Texture2D" uid="uid://qy4drm6p7le6" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir3.png" id="17_7t7wo"]
+[ext_resource type="Texture2D" uid="uid://bm5w6p317g2fm" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir2.png" id="18_tl68y"]
+[ext_resource type="Texture2D" uid="uid://uruy5yc8wgr0" path="res://Scenes/Entity/Characters/src/Mage/Idle/Fox_Idle_dir1.png" id="19_qa8dj"]
+[ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="20_3jvtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3fea"]
+shader = ExtResource("3_8gaox")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrkyo"]
+atlas = ExtResource("4_akqlq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c6ua"]
+atlas = ExtResource("5_7hixn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvp8b"]
+atlas = ExtResource("6_qsgmt")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7rfq"]
+atlas = ExtResource("7_6lrk5")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1yvj"]
+atlas = ExtResource("8_pxilw")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khfll"]
+atlas = ExtResource("9_aq83i")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcaco"]
+atlas = ExtResource("10_kdwlh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulj8h"]
+atlas = ExtResource("11_dbymm")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36cmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrkyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c6ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvp8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7rfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1yvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khfll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulj8h")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mib0a"]
+shader = ExtResource("3_8gaox")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro02e"]
+atlas = ExtResource("12_0jxbs")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ukpg"]
+atlas = ExtResource("13_seuqu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajwl0"]
+atlas = ExtResource("14_7a41r")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_844pm"]
+atlas = ExtResource("15_aw6jq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msbw5"]
+atlas = ExtResource("16_c6psq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxgmx"]
+atlas = ExtResource("17_7t7wo")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noxix"]
+atlas = ExtResource("18_tl68y")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yks7"]
+atlas = ExtResource("19_qa8dj")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvhux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro02e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajwl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_844pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msbw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxgmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noxix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yks7")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 3.0
+}]
+
+[node name="PlayerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yrni5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 5120.0
+offset_bottom = 3072.0
+texture = ExtResource("2_qh4r1")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 331.0
+offset_top = 494.0
+offset_right = 4851.0
+offset_bottom = 742.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "Keyboard                          Controller"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -38.0
+offset_right = -1.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 2300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 600
+
+[node name="Knight" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_v3fea")
+position = Vector2(1000, 1800)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_36cmo")
+animation = &"spin"
+frame_progress = 0.706104
+
+[node name="Mage" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_mib0a")
+position = Vector2(4000, 1800)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_gvhux")
+animation = &"spin"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button_Play" type="Button" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("20_3jvtg")
+text = "Play
+"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/Button_Play" to="." method="_on_button_play_pressed"]

@@ -1,5 +1,7 @@
 extends Node2D
+@onready var debug = $Debug
 
+@onready var scoreboard = $Camera2D/Scoreboard/MarginContainer/Score
 @onready var arena: Node2D = $Rooms/Arena
 @onready var camera : Camera2D = $Camera2D
 @onready var camera_move := camera.position
@@ -18,8 +20,20 @@ var bricks: Array
 var bricks_to_destroy: Array
 
 func _ready() -> void:
-	player = Globals.selected_player.instantiate()
-	$Players.add_child(player)
+	if GameManager.local_multiplayer:
+		var p1 = Globals.Knight.instantiate()
+		p1.position = arena.get_node("Spawns").get_node("P1_Spawn").position
+		p1.input_type = "Controller"
+		$Players.add_child(p1)
+		var p2 = Globals.Mage.instantiate()
+		p2.position = arena.get_node("Spawns").get_node("P2_Spawn").position
+		p2.input_type = "Keyboard"
+		var ai_controller = load("res://Scenes/Entity/Characters/Controller/bot_player_controller.tscn").instantiate()
+		p2.get_node("InputController").add_child(ai_controller)
+		$Players.add_child(p2)
+	else:
+		player = Globals.selected_player.instantiate()
+		$Players.add_child(player)
 	
 	Globals.game = self
 	Globals.ball = ball
@@ -30,15 +44,24 @@ func _ready() -> void:
 #	ball_spawn.ball = ball
 
 func _process(_delta):
-	$CanvasLayer/CameraPos.text = "camera_pos: " + str(camera.position)
-	$CanvasLayer/CameraMove.text = "camera_move: " + str(camera_move)
-	$CanvasLayer/PlayerPos.text = "player_pos: " + str(player.global_position)
-	$CanvasLayer/Speed_Mod.text = "Speed Mod: : " + str(player.speed_mod)
-	$CanvasLayer/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(player.move_dir.angle()))
-	$CanvasLayer/LookAngle.text = "Look Angle: : " + str(rad_to_deg(player.look_dir.angle()))
+	if debug.visible:
+		$Debug/CameraPos.text = "camera_pos: " + str(camera.position)
+		$Debug/CameraMove.text = "camera_move: " + str(camera_move)
+		$Debug/PlayerPos.text = "player_pos: " + str(player.global_position)
+		$Debug/Speed_Mod.text = "Speed Mod: : " + str(player.speed_mod)
+		$Debug/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(player.move_dir.angle()))
+		$Debug/LookAngle.text = "Look Angle: : " + str(rad_to_deg(player.look_dir.angle()))
 	
 	if camera.position != camera_move:
 		camera.position = camera.position.move_toward(camera_move, camera_speed)
+	
+	_update_score()
+
+func _update_score():
+	var _score = "{1} : {2}"
+	var _s1 = str("%0*d" % [2, GameManager.score1])
+	var _s2 = str("%0*d" % [2, GameManager.score2])
+	scoreboard.text = _score.format({"1": _s1, "2": _s2})
 
 func reset_ball(entity):
 	entity.position = arena.ball_spawn.global_position

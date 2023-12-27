@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1n2234mcc67m"]
+
+[ext_resource type="Script" path="res://Scenes/Entity/Characters/Animation Machine/animation_controller.gd" id="1_ysae3"]
+
+[node name="AnimationController" type="Node"]
+script = ExtResource("1_ysae3")

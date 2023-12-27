@@ -3,9 +3,12 @@ class_name EntityClass
 
 @onready var Anim = $AnimatedSprite2D
 @onready var StateController: Node = $StateController
+@onready var AnimationController = $AnimationController
 @onready var direction_indicator: Sprite2D = $DirectionIndicator
+@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var spawn_position := self.position
 
-var Controller: Node
+var InputController: Node
 var input_type := "Keyboard"
 
 var is_moving: bool = false
@@ -14,47 +17,57 @@ var is_attacking: String = ""
 var move_dir: Vector2 = Vector2.ZERO
 var look_dir: Vector2 = Vector2.ZERO
 var prev_dir: Vector2 = Vector2.ZERO
+var incoming_force := Vector2.ZERO
 
-var friction: float
+var friction: float = 100.0
 var speed: int
 var speed_min: int
 var speed_def: int
 var speed_max: int
 var speed_mod := 1.0
 
-var damage: int = 0
 var atk_cd: int = 0
 var atk_cd_min: int
 var atk_cd_def: int
 var atk_cd_max: int
+var damage: int = 0
+var knockback: int = 1000
+var status: String = ""
 
-var max_heal: float = 100
+var max_iFrames: int = 100
+var max_health: float = 100
 var max_mana: float = 100
 var max_stam: float = 100
-var heal: int = int(max_heal)
+var iFrames: int = 0
+var health: int = int(max_health)
 var mana: int = int(max_mana)
 var stam: int = int(max_stam)
 
 func _ready():
-	if $Controller.get_child_count() == 0:
+	if $InputController.get_child_count() == 0:
 		var controller = load("res://Scenes/Entity/Characters/Controller/input_controller.tscn").instantiate()
-		$Controller.add_child(controller)
+		$InputController.add_child(controller)
 	
-	Controller = $Controller.get_child(0)
+	InputController = $InputController.get_child(0)
 	StateController.init()
 
 func _process(delta):
+	progress_bar.value = health / max_health * 100
+	
 	if move_dir.length() > 0:
 		prev_dir = move_dir
-	move_dir = Controller.update_move()
-	look_dir = Controller.update_look()
+	move_dir = InputController.update_move()
+	look_dir = InputController.update_look()
 	
 	direction_indicator.rotation = look_dir.angle()
 	
-	is_running = Controller.update_run()
+	is_running = InputController.update_run()
 	StateController.process(delta)
 	
-	velocity = move_dir * speed *  speed_mod * delta
+	var target_velocity: Vector2 = move_dir * speed *  speed_mod * delta
+	incoming_force = incoming_force.move_toward(Vector2.ZERO, friction)
+	velocity = target_velocity
+	velocity += incoming_force
 
 func animate_to(verb: String = "", dir: String = ""):
 	var prev_anim = Anim.animation.rsplit("_")
@@ -64,3 +77,16 @@ func animate_to(verb: String = "", dir: String = ""):
 		prev_anim[-1] = dir
 	var anim = verb + "_" + prev_anim[-1]
 	Anim.play(anim)
+
+func take_damage(dmg:int = 0, kb:Vector2 = Vector2.ZERO, _stat:String = ""):
+	if iFrames == 0:
+		health = max(health-dmg, 0)
+		if health == 0:
+			_respawn()
+		incoming_force += kb
+
+func _respawn():
+	incoming_force = Vector2.ZERO
+	velocity = Vector2.ZERO
+	health = int(max_health)
+	position = spawn_position

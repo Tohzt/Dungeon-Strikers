@@ -1,6 +1,7 @@
-[gd_scene load_steps=452 format=3 uid="uid://br2cpmytkm5gp"]
+[gd_scene load_steps=455 format=3 uid="uid://br2cpmytkm5gp"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Knight/Knight.gd" id="1_a17f4"]
+[ext_resource type="PackedScene" uid="uid://1n2234mcc67m" path="res://Scenes/Entity/Characters/Animation Machine/animation_controller.tscn" id="3_jt1ke"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="3_qvo7h"]
 [ext_resource type="Shader" path="res://Scenes/Style/shader_outline.gdshader" id="4_krpie"]
 [ext_resource type="Texture2D" uid="uid://bi1wc62o3s0go" path="res://Scenes/Entity/Characters/src/knight/Idle/Knight_Idle_dir8.png" id="5_1slhs"]
@@ -2198,7 +2199,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_down",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2248,7 +2249,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_down-left",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2298,7 +2299,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_down-right",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2348,7 +2349,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_left",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2398,7 +2399,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_right",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2448,7 +2449,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_up",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2498,7 +2499,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_up-left",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2548,7 +2549,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee_up-right",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -3087,6 +3088,12 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrjpy"]
+bg_color = Color(0, 0.317647, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cgu1"]
+bg_color = Color(0.0509804, 0.721569, 0.27451, 1)
+
 [node name="Knight" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -3094,9 +3101,11 @@ collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_a17f4")
 
-[node name="Controller" type="Node" parent="."]
+[node name="InputController" type="Node" parent="."]
 
 [node name="StateController" parent="." instance=ExtResource("3_qvo7h")]
+
+[node name="AnimationController" parent="." instance=ExtResource("3_jt1ke")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
@@ -3114,7 +3123,7 @@ material = SubResource("ShaderMaterial_8kiqb")
 position = Vector2(0, 12)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
-animation = &"melee_down-right"
+animation = &"melee_up-right"
 
 [node name="Attacks" type="Node" parent="."]
 
@@ -3122,3 +3131,26 @@ animation = &"melee_down-right"
 modulate = Color(0, 0.215686, 1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("36_t5qne")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -250.0
+offset_right = 75.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(75, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxFlat_qrjpy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1cgu1")
+step = 1.0
+value = 50.0
+rounded = true

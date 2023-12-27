@@ -7,6 +7,11 @@ const view := Vector2(5120, 3072)
 var input_options = {0: "Keyboard", 1: "Controller"}
 var input_type = 0
 
+var local_multiplayer = false
+
+var score1 := 0
+var score2 := 0
+
 func _ready():
 	randomize()
 #	HUD = Globals.game.get_node("HUD")
@@ -27,3 +32,10 @@ func _unhandled_input(_event):
 			Globals.game.add_child(pause)
 		else:
 			print_debug("Game not set")
+
+func add_goal(side : String):
+	match side:
+		"left":
+			score1 += 1
+		"right":
+			score2 += 1

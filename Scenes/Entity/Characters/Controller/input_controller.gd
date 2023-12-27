@@ -1,6 +1,5 @@
 extends Node
 
-# TODO: Pass this info down on creation
 @onready var Master: EntityClass = get_parent().get_parent()
 
 var move: Vector2
@@ -13,15 +12,17 @@ func update_run()  -> bool:    return run
 
 func _process(_delta):
 	move = Vector2.ZERO
-	move = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
-	
 	var look_input = Input.get_vector("AIM_LEFT", "AIM_RIGHT", "AIM_UP", "AIM_DOWN")
 	if Master.input_type == "Keyboard":
+		move = Input.get_vector("LEFT_K", "RIGHT_K", "UP_K", "DOWN_K")
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 		var mouse_pos:Vector2 = Master.get_local_mouse_position()
 		look_input = (mouse_pos).normalized()
-		
+	
+	elif Master.input_type == "Controller":
+		move = Input.get_vector("LEFT_C", "RIGHT_C", "UP_C", "DOWN_C")
+	
 	if look_input.length():
 		look = look_input
 		_adjust_speed()
@@ -44,9 +45,19 @@ func _adjust_speed():
 
 func _unhandled_input(_event):
 	run = false
-	if Input.is_action_pressed("RUN"):
-		run = true
-	if Input.is_action_just_pressed("MELEE"):
-		get_parent().get_parent().is_attacking = "melee"
-	elif Input.is_action_just_pressed("RANGED"):
-		get_parent().get_parent().is_attacking = "ranged"
+	if Master.input_type == "Keyboard": 
+		if Input.is_action_pressed("RUN_K"):
+			run = true
+		if Input.is_action_just_pressed("MELEE_K"):
+			get_parent().get_parent().is_attacking = "melee"
+		elif Input.is_action_just_pressed("RANGED_K"):
+			get_parent().get_parent().is_attacking = "ranged"
+		
+	elif Master.input_type == "Controller": 
+		if Input.is_action_pressed("RUN_C"):
+			run = true
+		if Input.is_action_just_pressed("MELEE_C"):
+			get_parent().get_parent().is_attacking = "melee"
+		elif Input.is_action_just_pressed("RANGED_C"):
+			get_parent().get_parent().is_attacking = "ranged"
+			
