@@ -8,7 +8,7 @@ extends Node2D
 var camera_speed = 100
 
 @onready var player: CharacterBody2D
-@onready var ball: CharacterBody2D = $Ball
+@onready var ball: SmackableClass #CharacterBody2D = $Ball
 
 var health: int = 3
 var energy: float = 0.0
@@ -36,8 +36,9 @@ func _ready() -> void:
 		$Players.add_child(player)
 	
 	Globals.game = self
-	Globals.ball = ball
-	ball.launch()
+	if ball:
+		Globals.ball = ball
+		ball.launch()
 #	hide_combo()
 #	ball.attached_to = ball_spawn
 #	ball_spawn.ball_attached = ball

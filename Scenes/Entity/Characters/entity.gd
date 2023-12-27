@@ -4,8 +4,7 @@ class_name EntityClass
 @onready var Anim = $AnimatedSprite2D
 @onready var StateController: Node = $StateController
 @onready var AnimationController = $AnimationController
-@onready var direction_indicator: Sprite2D = $DirectionIndicator
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var health_bar: ProgressBar = $ProgressBar
 @onready var spawn_position := self.position
 
 var InputController: Node
@@ -45,24 +44,30 @@ var stam: int = int(max_stam)
 
 func _ready():
 	if $InputController.get_child_count() == 0:
-		var controller = load("res://Scenes/Entity/Characters/Controller/input_controller.tscn").instantiate()
+		var controller
+		if self.is_in_group("Player"):
+			controller = load("res://Scenes/Entity/Characters/Controller/input_controller.tscn").instantiate()
+		else:
+			controller = load("res://Scenes/Entity/Enemy/enemy_input_controller.tscn").instantiate()
 		$InputController.add_child(controller)
 	
 	InputController = $InputController.get_child(0)
 	StateController.init()
+	
+	speed = 100
+	friction = 0.05
 
 func _process(delta):
-	progress_bar.value = health / max_health * 100
+	health_bar.value = health / max_health * 100
 	
 	if move_dir.length() > 0:
 		prev_dir = move_dir
 	move_dir = InputController.update_move()
 	look_dir = InputController.update_look()
 	
-	direction_indicator.rotation = look_dir.angle()
-	
 	is_running = InputController.update_run()
 	StateController.process(delta)
+	AnimationController.State = StateController.State
 	
 	var target_velocity: Vector2 = move_dir * speed *  speed_mod * delta
 	incoming_force = incoming_force.move_toward(Vector2.ZERO, friction)

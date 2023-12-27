@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=8 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
 [ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
 [ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="3_fak73"]
-[ext_resource type="PackedScene" uid="uid://bht14wbgex4cn" path="res://Scenes/Entity/Ball/ball.tscn" id="4_ctq47"]
 [ext_resource type="PackedScene" uid="uid://bow1sknvofuor" path="res://Scenes/Game/Arena/arena_4-way.tscn" id="5_fsmmj"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
 
@@ -126,23 +125,11 @@ position = Vector2(5120, -3072)
 [node name="Arena_4Way6" parent="Rooms" instance=ExtResource("5_fsmmj")]
 position = Vector2(5120, 3072)
 
-[node name="Ball" parent="." instance=ExtResource("4_ctq47")]
-position = Vector2(2560, 1536)
-
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(2560, 1536)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(-1358, -435)
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(-1337, 606)
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(1500, -492)
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(1514, 734)
+position = Vector2(0, 256)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true

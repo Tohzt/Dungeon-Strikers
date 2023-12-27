@@ -1,8 +1,8 @@
-extends CharacterBody2D
+extends EntityClass
 class_name SmackableClass
 
 @export var bump_timing_scene: PackedScene = preload("res://Scenes/Effects/Bump/bump_timing.tscn")
-@export var speed: float = 100.0
+#@export var speed: float = 100.0
 @export var accel: float = 200.0
 @export var deccel: float = 100.0
 @export var max_normal_angle: float = 15.0
@@ -24,9 +24,10 @@ var boost_factor: float = 1.0
 var boost_factor_perfect: float = 1.3
 var boost_factor_late_early: float = 1.15
 
-var friction = 0.05
+#var friction = 0.05
 
 func _process(delta):
+	super(delta)
 	if attached_to:
 		global_position = attached_to.global_position
 		return

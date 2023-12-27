@@ -3,6 +3,7 @@ extends EntityClass
 # TODO: Replace with knights range attack
 @onready var fireball = preload("res://Scenes/Attacks/fireball.tscn")
 @onready var sword_slash = preload("res://Scenes/Attacks/sword_slash.tscn")
+@onready var direction_indicator: Sprite2D = $DirectionIndicator
 
 func _ready():
 	speed_min = 20000
@@ -20,6 +21,7 @@ func _ready():
 func _process(delta):
 	super(delta)
 	move_and_slide()
+	direction_indicator.rotation = look_dir.angle()
 
 func melee_attack() -> void:
 	AnimationController._update_anim("melee")

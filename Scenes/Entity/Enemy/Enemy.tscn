@@ -1,7 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dt1m1feio7oxg"]
+[gd_scene load_steps=23 format=3 uid="uid://dt1m1feio7oxg"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Enemy/Enemy.gd" id="1_3c5uu"]
+[ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="2_cr8r2"]
 [ext_resource type="Texture2D" uid="uid://d745eudbampb" path="res://Scenes/Entity/Ball/src/Slime.png" id="3_l7yu1"]
+[ext_resource type="PackedScene" uid="uid://ks80pbxa3wen" path="res://Scenes/Entity/Enemy/enemy_animation_controller.tscn" id="3_r81mu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nf7pi"]
 radius = 48.1664
@@ -59,7 +61,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8uh4b")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -79,7 +81,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pr6af")
 }],
 "loop": true,
-"name": &"Move",
+"name": &"move_down",
 "speed": 8.0
 }]
 
@@ -111,10 +113,22 @@ corner_radius_bottom_left = 8
 ProgressBar/styles/background = SubResource("StyleBoxFlat_5yt5x")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_y7u6s")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkrhs"]
+bg_color = Color(0, 0.317647, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1reu6"]
+bg_color = Color(0.0509804, 0.721569, 0.27451, 1)
+
 [node name="Enemy" type="CharacterBody2D" groups=["Ball"]]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_3c5uu")
+
+[node name="InputController" type="Node" parent="."]
+
+[node name="StateController" parent="." instance=ExtResource("2_cr8r2")]
+
+[node name="AnimationController" parent="." instance=ExtResource("3_r81mu")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nf7pi")
@@ -128,8 +142,7 @@ texture = SubResource("GradientTexture2D_cnwcb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_em7yr")
-animation = &"Move"
-frame_progress = 0.259567
+animation = &"move_down"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -158,3 +171,26 @@ step = 1.0
 value = 75.0
 rounded = true
 show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -250.0
+offset_right = 75.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(75, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxFlat_vkrhs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1reu6")
+step = 1.0
+value = 50.0
+rounded = true

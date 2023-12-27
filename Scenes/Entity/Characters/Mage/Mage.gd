@@ -3,6 +3,7 @@ extends EntityClass
 @onready var fireball = preload("res://Scenes/Attacks/fireball.tscn")
 # TODO: Replace with Mages melee attack
 @onready var sword_slash = preload("res://Scenes/Attacks/sword_slash.tscn")
+@onready var direction_indicator: Sprite2D = $DirectionIndicator
 
 func _ready():
 	speed_min = 20000

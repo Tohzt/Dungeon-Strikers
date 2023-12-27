@@ -5,11 +5,9 @@ var State: base_state
 
 func _ready():
 	Master = get_parent()
-	State = Master.get_node("StateController").State
 
 func _process(_delta):
-	State = Master.get_node("StateController").State
-	print(State)
+	#State = Master.get_node("StateController").State
 	_update_animations()
 
 func _update_animations():

@@ -1,7 +1,7 @@
 extends SmackableClass
 
 @onready var loot_preload = preload("res://Scenes/Loot/Exp.tscn")
-@onready var health_bar = $Control/MarginContainer/HealthBar
+#@onready var health_bar = $Control/MarginContainer/HealthBar
 
 var max_hp = 100
 var hp = max_hp
@@ -13,15 +13,16 @@ var wander_interval = 0
 @onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
-	randomize()
+	#input_type = "AI"
 	health_bar.visible = false
+	super()
 
 func _process(delta: float) -> void:
 	if is_idle:
 		_wander(delta)
-		anim.play("Move")
+		anim.play("move_down")
 	else:
-		anim.play("Idle")
+		anim.play("idle_down")
 		velocity = velocity.lerp(Vector2(0, 0), friction)
 		if velocity.length() < 200:
 			is_idle = true
@@ -66,3 +67,8 @@ func hit_by(obj, vel: Vector2 = Vector2.ZERO):
 		_die()
 	
 	super(obj, vel)
+
+func melee_attack() -> void:
+	is_attacking = ""
+func ranged_attack() -> void:
+	is_attacking = ""

@@ -17,7 +17,7 @@ enum States {
 	$Attack,
 ]
 
-@onready var Master: Node2D = get_parent()
+@onready var Master: EntityClass = get_parent()
 
 var State: base_state
 
@@ -30,10 +30,12 @@ func change_state(new_state: int) -> void:
 		State.init(Master, States, current)
 
 func process(_delta):
+	#print(Master)
 	if State:
 		State.process(Master.move_dir, Master.look_dir)
 		var new_state = State.check_state()
 		if new_state != States.NULL:
 			change_state(new_state)
 
-
+func _update_anim_controller():
+	Master.AnimationController.State = State

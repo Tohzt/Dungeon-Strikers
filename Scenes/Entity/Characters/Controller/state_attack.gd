@@ -14,7 +14,7 @@ func process(_move, _look):
 		Master.is_attacking = ""
 
 func check_state() -> int:
-	if !Master.is_attacking != "":
+	if Master.is_attacking == "":
 		return States.IDLE
 	return States.NULL
 
