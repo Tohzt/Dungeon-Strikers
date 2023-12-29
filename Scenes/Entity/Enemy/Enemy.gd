@@ -5,7 +5,6 @@ extends SmackableClass
 
 var max_hp = 100
 var hp = max_hp
-var is_idle:bool = true
 var wander_speed = 120
 var wander_timer = 0
 var wander_interval = 0 
@@ -13,20 +12,25 @@ var wander_interval = 0
 @onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
-	#input_type = "AI"
+	speed_min = 5000
+	speed_def = 10000
+	speed_max = 20000
+	speed = speed_def
+	input_type = "AI"
 	health_bar.visible = false
 	super()
 
 func _process(delta: float) -> void:
-	if is_idle:
-		_wander(delta)
-		anim.play("move_down")
-	else:
-		anim.play("idle_down")
-		velocity = velocity.lerp(Vector2(0, 0), friction)
-		if velocity.length() < 200:
-			is_idle = true
+	#if is_idle:
+		#_wander(delta)
+		#anim.play("move_down")
+	#else:
+		#anim.play("idle_down")
+		#velocity = velocity.lerp(Vector2(0, 0), friction)
+		#if velocity.length() < 200:
+			#is_idle = true
 	
+	move_and_slide()
 	super(delta)
 
 func _drop_loot() -> void:
@@ -61,7 +65,7 @@ func hit_by(obj, vel: Vector2 = Vector2.ZERO):
 	health_bar.visible = true
 	hp -= obj.damage
 	health_bar.value = hp
-	is_idle = false
+	is_moving = false
 	
 	if hp <= 0:
 		_die()

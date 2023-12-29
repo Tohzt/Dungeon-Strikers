@@ -27,9 +27,11 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body != caster:
+		print(body)
 		direction = (body.global_position - caster.global_position).normalized()
 		if body.is_in_group("Ball"):
-			body.hit_by(self, direction * 2000)
+			#body.hit_by(self, direction * 2000)
+			body.take_damage(damage, direction * knockback, status)
 		
 		if body.is_in_group("Player"):
 			# TODO: Try replacing with signals

@@ -28,43 +28,46 @@ var boost_factor_late_early: float = 1.15
 
 func _process(delta):
 	super(delta)
-	if attached_to:
-		global_position = attached_to.global_position
-		return
+	
+	#if attached_to:
+		#global_position = attached_to.global_position
+		#return
 		
-	if attracted:
-		var steer = Vector2.ZERO
-		var desired = (attracted_to - position).normalized() * steer_speed
-		steer = (desired - velocity).normalized() * steer_force
-		acceleration += steer
-		velocity += acceleration * delta
-		velocity = velocity.limit_length(steering_max_speed)
+	#if attracted:
+		#var steer = Vector2.ZERO
+		#var desired = (attracted_to - position).normalized() * steer_speed
+		#steer = (desired - velocity).normalized() * steer_force
+		#acceleration += steer
+		#velocity += acceleration * delta
+		#velocity = velocity.limit_length(steering_max_speed)
 #		rotation = velocity.angle()
 	
 	# Reset every frame to make sure we only attract
 	# when pressing the button
 	attracted = false
 #	var velocity_before_collision = velocity
-	var collision = move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta, true)
 	if not collision: return
 	
 	var normal = collision.get_normal()
 
 	# Update the normal with the paddle's velocity if we collide with attack
 	if collision.get_collider().is_in_group("Attack"):
-		frames_since_paddle_collison = 0
-		
-		normal = Vector2(sign(normal.x), 0)
-		var normal_rotated = normal.rotated(-sign(normal.x)*deg_to_rad(20.0))
-		velocity = normal_rotated * velocity.length()
-		velocity *= boost_factor
-		# Reset bump boost
-		boost_factor = 1.0
+		pass
+		#frames_since_paddle_collison = 0
+		#
+		#normal = Vector2(sign(normal.x), 0)
+		#var normal_rotated = normal.rotated(-sign(normal.x)*deg_to_rad(20.0))
+		#velocity = normal_rotated * velocity.length()
+		#velocity *= boost_factor
+		## Reset bump boost
+		#boost_factor = 1.0
 	
 	else:
 		velocity = velocity.bounce(normal)
 	
 	velocity = velocity.limit_length(max_speed)
+	
 
 	
 func hit_by(obj, vel: Vector2 = Vector2.ZERO):

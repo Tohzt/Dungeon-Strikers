@@ -3,9 +3,10 @@ extends Node
 @onready var Master: EntityClass = get_parent().get_parent()
 @onready var ai_state = Master.get_node("StateController")
 
-@export var attack_type: String = "ranged"
+@export var attack_type: String = "melee"
 var target: Node2D
 var chase_dist: int = 500
+var attack_range: int = 500
 var position: Vector2
 var move: Vector2 = Vector2.ZERO
 var look: Vector2 = Vector2.RIGHT
@@ -43,21 +44,18 @@ func _attack_cooldown():
 func _update_state():
 	match ai_state.State.name:
 		"Idle":
-			move = Vector2.LEFT
-			pass
+			if Master.global_position.distance_to(target.global_position) > attack_range:
+				Master.is_moving = true
+				pass
 		"Walk":
-			if Master.global_position.distance_to(target.global_position) > chase_dist:
-				run = true
-			elif Master.atk_cd == 0:
-				Master.atk_cd = Master.atk_cd_def
-				Master.is_attacking = attack_type
-				
+			#if Master.global_position.distance_to(target.global_position) < attack_range\
+			#and Master.atk_cd == 0:
+				#Master.atk_cd = Master.atk_cd_def
+				#Master.is_attacking = attack_type
+				#
 			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
 		"Run":
-			if Master.global_position.distance_to(target.global_position) < chase_dist:
-				run = false
-			move = Master.global_position.direction_to(target.global_position).normalized()
 			pass
 		"Attack":
 			pass

@@ -12,7 +12,6 @@ func _process(_delta):
 
 func _update_animations():
 	var new_anim = ""
-	print(State)
 	match State.name:
 		"Idle": 
 			new_anim = "idle"

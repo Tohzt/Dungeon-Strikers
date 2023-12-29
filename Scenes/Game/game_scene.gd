@@ -19,6 +19,8 @@ var combo: int = 0
 var bricks: Array
 var bricks_to_destroy: Array
 
+@onready var enemy: SmackableClass = $Enemies/Enemy
+
 func _ready() -> void:
 	if GameManager.local_multiplayer:
 		var p1 = Globals.Knight.instantiate()
@@ -46,12 +48,14 @@ func _ready() -> void:
 
 func _process(_delta):
 	if debug.visible:
-		$Debug/CameraPos.text = "camera_pos: " + str(camera.position)
-		$Debug/CameraMove.text = "camera_move: " + str(camera_move)
-		$Debug/PlayerPos.text = "player_pos: " + str(player.global_position)
-		$Debug/Speed_Mod.text = "Speed Mod: : " + str(player.speed_mod)
-		$Debug/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(player.move_dir.angle()))
-		$Debug/LookAngle.text = "Look Angle: : " + str(rad_to_deg(player.look_dir.angle()))
+		var entity = enemy
+		$Debug/State.text = "State: " + str(entity.StateController.State.name)
+		$Debug/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(entity.move_dir.angle()))
+		$Debug/LookAngle.text = "Look Angle: : " + str(rad_to_deg(entity.look_dir.angle()))
+		#$Debug/CameraPos.text = "camera_pos: " + str(camera.position)
+		#$Debug/CameraMove.text = "camera_move: " + str(camera_move)
+		#$Debug/PlayerPos.text = "player_pos: " + str(player.global_position)
+		#$Debug/Speed_Mod.text = "Speed Mod: : " + str(player.speed_mod)
 	
 	if camera.position != camera_move:
 		camera.position = camera.position.move_toward(camera_move, camera_speed)

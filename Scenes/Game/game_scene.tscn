@@ -14,33 +14,17 @@ size = Vector2(5120, 3072)
 script = ExtResource("1_tg51m")
 
 [node name="Debug" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="CameraPos" type="Label" parent="Debug"]
+[node name="State" type="Label" parent="Debug"]
 offset_left = 256.0
 offset_top = 128.0
 offset_right = 1296.0
 offset_bottom = 256.0
 theme_override_font_sizes/font_size = 64
-text = "camera_pos: "
-
-[node name="CameraMove" type="Label" parent="Debug"]
-offset_left = 256.0
-offset_top = 256.0
-offset_right = 1296.0
-offset_bottom = 384.0
-theme_override_font_sizes/font_size = 64
-text = "camera_move: "
-
-[node name="PlayerPos" type="Label" parent="Debug"]
-offset_left = 256.0
-offset_top = 384.0
-offset_right = 1296.0
-offset_bottom = 512.0
-theme_override_font_sizes/font_size = 64
-text = "player_pos: "
+text = "slime_state: : "
 
 [node name="Speed_Mod" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 686.0
@@ -88,6 +72,8 @@ texture = ExtResource("1_tnej1")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -256.0
+offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 256
