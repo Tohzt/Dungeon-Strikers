@@ -33,10 +33,7 @@ func _pop():
 func _on_area_2d_body_entered(body):
 	if body != caster:
 		direction = (body.global_position - caster.global_position).normalized()
-		if body.is_in_group("Ball"):
-			body.hit_by(self, direction * 2000)
-		
-		if body.is_in_group("Player"):
+		if body.is_in_group("Ball") or body.is_in_group("Player"):
 			# TODO: Try replacing with signals
 			body.take_damage(damage, direction * knockback, status)
 		_pop()

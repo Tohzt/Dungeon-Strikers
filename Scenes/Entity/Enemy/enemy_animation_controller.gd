@@ -19,6 +19,10 @@ func _update_animations():
 			new_anim = "move"
 		"Run":
 			pass
+		"Attack":
+			pass
+		"Slide":
+			new_anim = "slide"
 		"Dash":
 			pass
 	if new_anim != "":

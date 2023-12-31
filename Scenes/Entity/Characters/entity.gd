@@ -53,9 +53,6 @@ func _ready():
 	
 	InputController = $InputController.get_child(0)
 	StateController.init()
-	
-	speed = 100
-	friction = 0.05
 
 func _process(delta):
 	health_bar.value = health / max_health * 100

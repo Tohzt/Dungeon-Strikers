@@ -5,16 +5,18 @@ enum States {
 	IDLE,
 	WALK,
 	RUN,
-	DASH,
 	ATTACK,
+	SLIDE,
+	DASH,
 }
 @onready var current = [
 	null,
 	$Idle,
 	$Walk,
 	$Run,
-	$Dash,
 	$Attack,
+	$Slide,
+	$Dash,
 ]
 
 @onready var Master: EntityClass = get_parent()

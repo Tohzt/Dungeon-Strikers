@@ -16,6 +16,8 @@ func check_state() -> int:
 		return States.IDLE
 	if !Master.is_running:
 		return States.WALK
+	if Master.incoming_force.length() > 0:
+		return States.SLIDE
 	return States.NULL
 
 func exit_state():

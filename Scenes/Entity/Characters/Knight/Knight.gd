@@ -10,12 +10,13 @@ func _ready():
 	speed_def = 30000
 	speed_max = 60000
 	speed = speed_def
+	friction = 0.05
 	
 	atk_cd_min = 10
 	atk_cd_def = 50
 	atk_cd_max = 100
 
-	damage = 10
+	damage = 0
 	super()
 
 func _process(delta):

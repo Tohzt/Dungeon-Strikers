@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dt1m1feio7oxg"]
+[gd_scene load_steps=24 format=3 uid="uid://dt1m1feio7oxg"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Enemy/Enemy.gd" id="1_3c5uu"]
+[ext_resource type="PackedScene" uid="uid://dlk1ywe2f24bw" path="res://Scenes/Entity/Enemy/enemy_input_controller.tscn" id="2_8rn0o"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="2_cr8r2"]
 [ext_resource type="Texture2D" uid="uid://d745eudbampb" path="res://Scenes/Entity/Ball/src/Slime.png" id="3_l7yu1"]
 [ext_resource type="PackedScene" uid="uid://ks80pbxa3wen" path="res://Scenes/Entity/Enemy/enemy_animation_controller.tscn" id="3_r81mu"]
@@ -83,6 +84,14 @@ animations = [{
 "loop": true,
 "name": &"move_down",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uh4b")
+}],
+"loop": true,
+"name": &"slide_down",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yt5x"]
@@ -126,6 +135,8 @@ script = ExtResource("1_3c5uu")
 
 [node name="InputController" type="Node" parent="."]
 
+[node name="InputController" parent="InputController" instance=ExtResource("2_8rn0o")]
+
 [node name="StateController" parent="." instance=ExtResource("2_cr8r2")]
 
 [node name="AnimationController" parent="." instance=ExtResource("3_r81mu")]
@@ -142,7 +153,7 @@ texture = SubResource("GradientTexture2D_cnwcb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_em7yr")
-animation = &"move_down"
+animation = &"slide_down"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

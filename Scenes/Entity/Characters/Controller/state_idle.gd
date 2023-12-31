@@ -12,6 +12,8 @@ func check_state() -> int:
 		return States.WALK
 	if Master.is_attacking != "":
 		return States.ATTACK
+	if Master.incoming_force.length() > 0:
+		return States.SLIDE
 	return States.NULL
 
 func exit_state():

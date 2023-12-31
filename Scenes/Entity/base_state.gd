@@ -1,7 +1,7 @@
 class_name base_state
 extends Node
 
-var Master: CharacterBody2D
+var Master: EntityClass
 var Current
 var States
 

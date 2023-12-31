@@ -16,6 +16,8 @@ func process(_move, _look):
 func check_state() -> int:
 	if Master.is_attacking == "":
 		return States.IDLE
+	if Master.incoming_force.length() > 0:
+		return States.SLIDE
 	return States.NULL
 
 func exit_state():

@@ -11,14 +11,19 @@ func _process(_delta):
 	_update_animations()
 
 func _update_animations():
+	# TODO: Update Attack Animation From Here
 	var new_anim = ""
 	match State.name:
 		"Idle": 
 			new_anim = "idle"
 		"Walk": 
 			new_anim = "walk"
+		"Attack":
+			pass
 		"Run":
 			new_anim = "run"
+		"Slide":
+			pass
 		"Dash":
 			pass
 	if new_anim != "":

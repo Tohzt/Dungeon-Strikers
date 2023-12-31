@@ -12,12 +12,19 @@ var wander_interval = 0
 @onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
+	input_type = "AI"
+	health_bar.visible = false
 	speed_min = 5000
 	speed_def = 10000
 	speed_max = 20000
 	speed = speed_def
-	input_type = "AI"
-	health_bar.visible = false
+	friction = 10
+	
+	atk_cd_min = 10
+	atk_cd_def = 50
+	atk_cd_max = 100
+
+	damage = 10
 	super()
 
 func _process(delta: float) -> void:
@@ -30,14 +37,14 @@ func _process(delta: float) -> void:
 		#if velocity.length() < 200:
 			#is_idle = true
 	
-	move_and_slide()
+	#move_and_slide()
 	super(delta)
 
 func _drop_loot() -> void:
 	var loot = loot_preload.instantiate()
 	loot.position = position
 	loot.pop()
-	Globals.game.add_child(loot)
+	#Globals.game.add_child(loot)
 	GameManager.update_ExperienceBar()
 
 func _die() -> void:
@@ -69,8 +76,6 @@ func hit_by(obj, vel: Vector2 = Vector2.ZERO):
 	
 	if hp <= 0:
 		_die()
-	
-	super(obj, vel)
 
 func melee_attack() -> void:
 	is_attacking = ""
