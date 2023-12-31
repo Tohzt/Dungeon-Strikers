@@ -14,7 +14,6 @@ size = Vector2(5120, 3072)
 script = ExtResource("1_tg51m")
 
 [node name="Debug" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="State" type="Label" parent="Debug"]
 offset_left = 256.0
@@ -34,6 +33,7 @@ theme_override_font_sizes/font_size = 64
 text = "Speed Mod: "
 
 [node name="MoveAngle" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 731.0
@@ -42,6 +42,7 @@ theme_override_font_sizes/font_size = 64
 text = "Move Angle:"
 
 [node name="LookAngle" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 512.0
 offset_right = 731.0

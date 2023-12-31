@@ -6,6 +6,8 @@ extends EntityClass
 @onready var direction_indicator: Sprite2D = $DirectionIndicator
 
 func _ready():
+	anims = ["idle", "walk", "run", "melee"]
+	
 	speed_min = 20000
 	speed_def = 30000
 	speed_max = 60000
@@ -25,14 +27,14 @@ func _process(delta):
 	direction_indicator.rotation = look_dir.angle()
 
 func melee_attack() -> void:
-	AnimationController._update_anim("melee")
+	#AnimationController._update_anim("melee")
 	var inst_sword_slash = sword_slash.instantiate()
 	inst_sword_slash.caster = self
 	$Attacks.add_child(inst_sword_slash)
 
 func ranged_attack() -> void:
 	# TODO: Replace with knights range attack
-	AnimationController._update_anim("melee")
+	#AnimationController._update_anim("melee")
 	var inst_fireball = fireball.instantiate()
 	inst_fireball.caster = self
 	$Attacks.add_child(inst_fireball)

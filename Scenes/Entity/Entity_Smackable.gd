@@ -5,8 +5,6 @@ var attached_to = null
 var attracted: bool = false
 var attracted_to = null
 
-#var friction = 0.05
-
 func _process(delta):
 	super(delta)
 	

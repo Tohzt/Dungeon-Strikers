@@ -1,35 +1,34 @@
 extends Node
+class_name AnimationClass
 
-var Master: CharacterBody2D
-var State: base_state
+var Master: EntityClass
 
 func _ready():
 	Master = get_parent()
 
-func _process(_delta):
-	#State = Master.get_node("StateController").State
-	_update_animations()
-
 func _update_animations():
-	# TODO: Update Attack Animation From Here
 	var new_anim = ""
-	match State.name:
+	match Master.StateController.State.name:
 		"Idle": 
 			new_anim = "idle"
 		"Walk": 
 			new_anim = "walk"
 		"Attack":
-			pass
+			new_anim = Master.is_attacking
 		"Run":
 			new_anim = "run"
 		"Slide":
-			pass
+			new_anim = "slide"
 		"Dash":
-			pass
-	if new_anim != "":
+			new_anim = "dash"
+	
+	if new_anim != "" and Master.anims.has(new_anim):
 		_update_anim(new_anim)
 
-func _update_anim(verb: String):
+func _update_anim(verb: String = ""):
+	if verb == "":
+		verb = Master.Anim.animation.rsplit("_")[0]
+	
 	var dir: String = ""
 	match Master.look_dir.normalized().round():
 		Vector2.LEFT:   dir = "left"

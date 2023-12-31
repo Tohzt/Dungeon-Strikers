@@ -24,14 +24,14 @@ func _process(delta):
 	move_and_slide()
 
 func ranged_attack() -> void:
-	AnimationController._update_anim("ranged")
+	#AnimationController._update_anim("ranged")
 	var inst_fireball = fireball.instantiate()
 	inst_fireball.caster = self
 	$Attacks.add_child(inst_fireball)
 
 func melee_attack():
 	# TODO: Replace with Mages melee attack
-	AnimationController._update_anim("melee")
+	#AnimationController._update_anim("melee")
 	var inst_sword_slash = sword_slash.instantiate()
 	inst_sword_slash.caster = self
 	$Attacks.add_child(inst_sword_slash)

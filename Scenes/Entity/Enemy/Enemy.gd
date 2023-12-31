@@ -12,6 +12,7 @@ var wander_interval = 0
 @onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
+	anims = ["idle", "walk", "slide"]
 	input_type = "AI"
 	health_bar.visible = false
 	speed_min = 5000
@@ -68,7 +69,7 @@ func _wander(delta) -> void:
 		wander_timer = 0
 		wander_interval = randi_range(1,5)
 
-func hit_by(obj, vel: Vector2 = Vector2.ZERO):
+func hit_by(obj, _vel: Vector2 = Vector2.ZERO):
 	health_bar.visible = true
 	hp -= obj.damage
 	health_bar.value = hp

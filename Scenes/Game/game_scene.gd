@@ -48,10 +48,10 @@ func _ready() -> void:
 
 func _process(_delta):
 	if debug.visible:
-		var entity = enemy
+		var entity = $Players.get_child(0)
 		$Debug/State.text = "State: " + str(entity.StateController.State.name)
-		$Debug/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(entity.move_dir.angle()))
-		$Debug/LookAngle.text = "Look Angle: : " + str(rad_to_deg(entity.look_dir.angle()))
+		#$Debug/MoveAngle.text = "Move Angle: : " + str(rad_to_deg(entity.move_dir.angle()))
+		#$Debug/LookAngle.text = "Look Angle: : " + str(rad_to_deg(entity.look_dir.angle()))
 		#$Debug/CameraPos.text = "camera_pos: " + str(camera.position)
 		#$Debug/CameraMove.text = "camera_move: " + str(camera_move)
 		#$Debug/PlayerPos.text = "player_pos: " + str(player.global_position)

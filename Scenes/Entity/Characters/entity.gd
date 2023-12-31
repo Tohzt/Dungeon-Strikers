@@ -10,6 +10,8 @@ class_name EntityClass
 var InputController: Node
 var input_type := "Keyboard"
 
+var anims: Array = []
+
 var is_moving: bool = false
 var is_running: bool = false
 var is_attacking: String = ""
@@ -64,7 +66,7 @@ func _process(delta):
 	
 	is_running = InputController.update_run()
 	StateController.process(delta)
-	AnimationController.State = StateController.State
+	#AnimationController.State = StateController.State
 	
 	var target_velocity: Vector2 = move_dir * speed *  speed_mod * delta
 	incoming_force = incoming_force.move_toward(Vector2.ZERO, friction)
