@@ -26,6 +26,7 @@ func update_ExperienceBar():
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
+		print(Globals.game)
 		if Globals.game:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			var pause = pause_scene.instantiate()

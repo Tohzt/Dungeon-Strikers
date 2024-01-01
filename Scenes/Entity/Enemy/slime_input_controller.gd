@@ -4,7 +4,7 @@ extends Node
 @onready var ai_state = Master.get_node("StateController")
 
 @export var attack_type: String = "melee"
-var target: Node2D
+
 var chase_dist: int = 500
 var attack_range: int = 500
 var position: Vector2
@@ -17,17 +17,18 @@ func _ready():
 
 func _process(_delta):
 	# TODO: This is jenky as fuuuck
-	if true: #Master.incoming_force:
+	if Master.incoming_force:
 		for pl in get_tree().get_nodes_in_group("Player"):
 			if pl != Master:
-				target = pl
-	if !target:
-		target = Globals.ball
+				Master.target = pl
+	Master.target_position = Master.global_position + Vector2.RIGHT * 100
+	if Master.target:
+		Master.target_position = Master.target.global_position
 	
 	_attack_cooldown()
 	_update_state()
 	
-	var look_input = Master.global_position.direction_to(target.global_position).normalized()
+	var look_input = Master.global_position.direction_to(Master.target_position).normalized()
 	if look_input.length():
 		look = look_input
 	elif move.length():
@@ -44,7 +45,7 @@ func _attack_cooldown():
 func _update_state():
 	match ai_state.State.name:
 		"Idle":
-			if Master.global_position.distance_to(target.global_position) > attack_range:
+			if Master.global_position.distance_to(Master.target_position) > attack_range:
 				Master.is_moving = true
 				pass
 		"Walk":
@@ -53,7 +54,7 @@ func _update_state():
 				#Master.atk_cd = Master.atk_cd_def
 				#Master.is_attacking = attack_type
 				#
-			move = Master.global_position.direction_to(target.global_position).normalized()
+			move = Master.global_position.direction_to(Master.target_position).normalized()
 			pass
 		"Run":
 			pass

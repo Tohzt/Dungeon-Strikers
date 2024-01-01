@@ -33,7 +33,6 @@ func change_state(new_state: int) -> void:
 		State.init(Master, States, current)
 
 func process(_delta):
-	#print(Master)
 	if State:
 		if State.name != "Attack":
 			Master.AnimationController._update_anim()

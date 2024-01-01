@@ -8,8 +8,9 @@ func _ready():
 	if get_parent().get_node("Players").get_child_count() != 1:
 		button_input.disabled = true
 
-func _process(_delta):
-	pass
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 
 func _on_button_resume_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -19,9 +20,9 @@ func _on_button_quit_pressed():
 	get_tree().quit()
 
 func _on_button_restart_pressed():
-	Globals.current_scene = Globals.player_select_scene
+	Globals.game = null
+	Globals.current_scene = Globals.start_scene
 	get_tree().change_scene_to_file(Globals.loading_scene)
-
 
 func _on_button_input_pressed():
 	if button_input.text == "Input: KB":

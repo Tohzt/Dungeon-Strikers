@@ -1,8 +1,8 @@
 [gd_scene load_steps=55 format=3 uid="uid://dt1m1feio7oxg"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Enemy/Enemy.gd" id="1_3c5uu"]
-[ext_resource type="PackedScene" uid="uid://dlk1ywe2f24bw" path="res://Scenes/Entity/Enemy/enemy_input_controller.tscn" id="2_8rn0o"]
 [ext_resource type="PackedScene" uid="uid://bjlb3knx3bg0a" path="res://Scenes/Entity/Characters/Controller/state_controller.tscn" id="2_cr8r2"]
+[ext_resource type="PackedScene" uid="uid://dlk1ywe2f24bw" path="res://Scenes/Entity/Enemy/slime_input_controller.tscn" id="2_otq5x"]
 [ext_resource type="PackedScene" uid="uid://ks80pbxa3wen" path="res://Scenes/Entity/Enemy/enemy_animation_controller.tscn" id="3_r81mu"]
 [ext_resource type="Texture2D" uid="uid://bxmfkok224525" path="res://Scenes/Entity/Enemy/src/Green_Slime/Hurt.png" id="5_mogox"]
 [ext_resource type="Texture2D" uid="uid://tycqvlw3510m" path="res://Scenes/Entity/Enemy/src/Green_Slime/Idle.png" id="5_qd1hy"]
@@ -336,7 +336,7 @@ script = ExtResource("1_3c5uu")
 
 [node name="InputController" type="Node" parent="."]
 
-[node name="InputController" parent="InputController" instance=ExtResource("2_8rn0o")]
+[node name="SlimeInputController" parent="InputController" instance=ExtResource("2_otq5x")]
 
 [node name="StateController" parent="." instance=ExtResource("2_cr8r2")]
 

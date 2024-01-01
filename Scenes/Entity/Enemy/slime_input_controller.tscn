@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlk1ywe2f24bw"]
+
+[ext_resource type="Script" path="res://Scenes/Entity/Enemy/slime_input_controller.gd" id="1_230eh"]
+
+[node name="SlimeInputController" type="Node"]
+script = ExtResource("1_230eh")

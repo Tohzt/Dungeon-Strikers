@@ -1,15 +1,14 @@
 extends SmackableClass
 
 @onready var loot_preload = preload("res://Scenes/Loot/Exp.tscn")
-#@onready var health_bar = $Control/MarginContainer/HealthBar
+@onready var anim = $AnimatedSprite2D
 
-var max_hp = 100
-var hp = max_hp
-var wander_speed = 120
+var target: EntityClass
+var target_position: Vector2
+
 var wander_timer = 0
 var wander_interval = 0 
 
-@onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
 	anims = ["idle", "walk", "slide"]
@@ -63,7 +62,7 @@ func _wander(delta) -> void:
 		var direction = Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle)))
 
 		# Set the velocity based on the new direction and speed
-		velocity = direction * wander_speed
+		velocity = direction * speed * speed_mod
 
 		# Reset the wander timer
 		wander_timer = 0
@@ -71,11 +70,11 @@ func _wander(delta) -> void:
 
 func hit_by(obj, _vel: Vector2 = Vector2.ZERO):
 	health_bar.visible = true
-	hp -= obj.damage
-	health_bar.value = hp
+	health -= obj.damage
+	health_bar.value = health
 	is_moving = false
 	
-	if hp <= 0:
+	if health <= 0:
 		_die()
 
 func melee_attack() -> void:

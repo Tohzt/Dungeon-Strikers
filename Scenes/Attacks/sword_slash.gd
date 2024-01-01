@@ -27,7 +27,6 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body != caster:
-		print(body)
 		direction = (body.global_position - caster.global_position).normalized()
 		if body.is_in_group("Ball") or body.is_in_group("Player"):
 			# TODO: Try replacing with signals
