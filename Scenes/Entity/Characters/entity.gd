@@ -32,7 +32,7 @@ var atk_cd_min: int
 var atk_cd_def: int
 var atk_cd_max: int
 var damage: int = 0
-var knockback: int = 1000
+var knockback: int = 500
 var status: String = ""
 
 var max_iFrames: int = 100

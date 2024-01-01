@@ -8,9 +8,9 @@ extends EntityClass
 func _ready():
 	anims = ["idle", "walk", "run", "melee"]
 	
-	speed_min = 20000
-	speed_def = 30000
-	speed_max = 60000
+	speed_min = 10000
+	speed_def = 15000
+	speed_max = 30000
 	speed = speed_def
 	friction = 0.05
 	
@@ -33,6 +33,7 @@ func melee_attack() -> void:
 	$Attacks.add_child(inst_sword_slash)
 
 func ranged_attack() -> void:
+	is_attacking = ""
 	# TODO: Replace with knights range attack
 	#AnimationController._update_anim("melee")
 	var inst_fireball = fireball.instantiate()

@@ -97,7 +97,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o77wv"]
-radius = 45.0444
+radius = 20.025
 
 [node name="fireball" type="Node2D" groups=["Attack"]]
 script = ExtResource("1_gpxkm")
@@ -105,17 +105,16 @@ script = ExtResource("1_gpxkm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_681us")
 position = Vector2(0, 50.2)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gxcv1")
-animation = &"pop"
-frame = 2
-frame_progress = 1.0
+animation = &"fireball"
 offset = Vector2(3.7, 2.8)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 96.35)
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 76)
 shape = SubResource("CircleShape2D_o77wv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

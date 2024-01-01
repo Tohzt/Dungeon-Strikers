@@ -21,8 +21,8 @@ GameManager="*res://Scenes/Game/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=5120
-window/size/viewport_height=3072
+window/size/viewport_width=2560
+window/size/viewport_height=1536
 window/size/window_width_override=1024
 window/size/window_height_override=614
 window/stretch/mode="viewport"

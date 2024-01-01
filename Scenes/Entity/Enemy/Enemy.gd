@@ -14,9 +14,9 @@ func _ready() -> void:
 	anims = ["idle", "walk", "slide"]
 	input_type = "AI"
 	health_bar.visible = false
-	speed_min = 5000
-	speed_def = 10000
-	speed_max = 20000
+	speed_min = 2500
+	speed_def = 5000
+	speed_max = 10000
 	speed = speed_def
 	friction = 10
 	

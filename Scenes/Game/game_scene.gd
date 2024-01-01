@@ -5,7 +5,7 @@ extends Node2D
 @onready var arena: Node2D = $Rooms/Arena
 @onready var camera : Camera2D = $Camera2D
 @onready var camera_move := camera.position
-var camera_speed = 100
+var camera_speed = 50
 
 @onready var player: CharacterBody2D
 @onready var ball: SmackableClass #CharacterBody2D = $Ball

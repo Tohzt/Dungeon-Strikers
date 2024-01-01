@@ -176,21 +176,22 @@ script = ExtResource("1_yrni5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 5120.0
-offset_bottom = 3072.0
+offset_right = 2560.0
+offset_bottom = 1536.0
 texture = ExtResource("2_qh4r1")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = 331.0
-offset_top = 494.0
-offset_right = 4851.0
-offset_bottom = 742.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 64
 text = "Keyboard                          Controller"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -198,34 +199,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -38.0
-offset_right = -1.0
-offset_bottom = 38.0
+offset_top = -806.0
+offset_bottom = 806.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 2300
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 600
-
-[node name="Knight" type="AnimatedSprite2D" parent="MarginContainer"]
-material = SubResource("ShaderMaterial_v3fea")
-position = Vector2(1000, 1800)
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_36cmo")
-animation = &"spin"
-frame_progress = 0.706104
-
-[node name="Mage" type="AnimatedSprite2D" parent="MarginContainer"]
-material = SubResource("ShaderMaterial_mib0a")
-position = Vector2(4000, 1800)
-scale = Vector2(6, 6)
-sprite_frames = SubResource("SpriteFrames_gvhux")
-animation = &"spin"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Button_Play" type="Button" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
@@ -233,5 +215,20 @@ size_flags_horizontal = 3
 theme = ExtResource("20_3jvtg")
 text = "Play
 "
+
+[node name="Knight" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_v3fea")
+position = Vector2(493, 1378)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_36cmo")
+animation = &"spin"
+frame_progress = 0.706104
+
+[node name="Mage" type="AnimatedSprite2D" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_mib0a")
+position = Vector2(2037, 1418)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gvhux")
+animation = &"spin"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/Button_Play" to="." method="_on_button_play_pressed"]

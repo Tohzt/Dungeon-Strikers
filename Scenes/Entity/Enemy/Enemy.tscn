@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl2geer3dynyo" path="res://Scenes/Entity/Enemy/src/Green_Slime/Walk.png" id="8_ggq4f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nf7pi"]
-radius = 48.1664
+radius = 21.0238
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyxyd"]
 
@@ -343,17 +343,16 @@ script = ExtResource("1_3c5uu")
 [node name="AnimationController" parent="." instance=ExtResource("3_r81mu")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_nf7pi")
 
 [node name="Shadow" type="MeshInstance2D" parent="."]
-position = Vector2(-4, 24.835)
-scale = Vector2(94.565, 42.03)
+scale = Vector2(50, 25)
 mesh = SubResource("SphereMesh_xrabe")
 texture = SubResource("GradientTexture2D_cnwcb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -106)
-scale = Vector2(2, 2)
+position = Vector2(0, -65)
 sprite_frames = SubResource("SpriteFrames_em7yr")
 animation = &"walk_down"
 
