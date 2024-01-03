@@ -11,7 +11,7 @@ func _process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		var collider = collision_info.get_collider()
-		if collider.name == "TileMap":
+		if collider.is_in_group("Solid"):
 			incoming_force = incoming_force.bounce(collision_info.get_normal())
 	
 	#if attached_to:

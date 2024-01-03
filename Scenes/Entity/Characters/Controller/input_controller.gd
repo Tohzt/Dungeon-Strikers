@@ -13,6 +13,7 @@ func update_run()  -> bool:    return run
 func _process(_delta):
 	move = Vector2.ZERO
 	var look_input = Input.get_vector("AIM_LEFT", "AIM_RIGHT", "AIM_UP", "AIM_DOWN")
+
 	if Master.input_type == "Keyboard":
 		move = Input.get_vector("LEFT_K", "RIGHT_K", "UP_K", "DOWN_K")
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -44,6 +45,11 @@ func _adjust_speed():
 	
 
 func _unhandled_input(_event):
+	#var mouse_input = Vector2.ZERO
+	#if event is InputEventMouseMotion:
+		#var mouse_pos:Vector2 = Master.get_local_mouse_position()
+		#mouse_input = (mouse_pos).normalized()
+	
 	run = false
 	if Master.input_type == "Keyboard": 
 		if Input.is_action_pressed("RUN_K"):

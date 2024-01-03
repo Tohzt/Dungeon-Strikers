@@ -9,6 +9,7 @@ class_name EntityClass
 
 var InputController: Node
 var input_type := "Keyboard"
+var overwrite_input := false
 
 var anims: Array = []
 
@@ -72,6 +73,9 @@ func _process(delta):
 	incoming_force = incoming_force.move_toward(Vector2.ZERO, friction)
 	velocity = target_velocity
 	velocity += incoming_force
+	
+	if overwrite_input:
+		velocity = Vector2.DOWN * speed_max * delta
 
 func animate_to(verb: String = "", dir: String = ""):
 	var prev_anim = Anim.animation.rsplit("_")

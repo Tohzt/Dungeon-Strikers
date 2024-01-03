@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://blplnsn2eu4a8"]
+[gd_scene load_steps=8 format=3 uid="uid://blplnsn2eu4a8"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_scene.gd" id="1_tg51m"]
 [ext_resource type="Texture2D" uid="uid://cffid2n54s5j7" path="res://Scenes/Menus/_src/Background.jpg" id="1_tnej1"]
 [ext_resource type="PackedScene" uid="uid://82shb0246r1s" path="res://Scenes/Game/Arena/arena.tscn" id="2_r8wms"]
 [ext_resource type="Theme" uid="uid://ctokpejk5hnqi" path="res://Scenes/Style/ui_theme.tres" id="3_fak73"]
+[ext_resource type="PackedScene" uid="uid://dq0emwyx28al7" path="res://Scenes/Game/Arena/arena_starting-top.tscn" id="5_mb06e"]
 [ext_resource type="PackedScene" uid="uid://dt1m1feio7oxg" path="res://Scenes/Entity/Enemy/Enemy.tscn" id="6_jhy00"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a7ld"]
-size = Vector2(5120, 3072)
+[ext_resource type="PackedScene" uid="uid://cpg1fcd5vflt0" path="res://Scenes/Game/Arena/arena_starting-bot.tscn" id="6_judwx"]
 
 [node name="game_scene" type="Node2D"]
 script = ExtResource("1_tg51m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -23,7 +25,6 @@ theme_override_font_sizes/font_size = 64
 text = "slime_state: : "
 
 [node name="Speed_Mod" type="Label" parent="Debug"]
-visible = false
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 686.0
@@ -32,7 +33,6 @@ theme_override_font_sizes/font_size = 64
 text = "Speed Mod: "
 
 [node name="MoveAngle" type="Label" parent="Debug"]
-visible = false
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 731.0
@@ -41,7 +41,6 @@ theme_override_font_sizes/font_size = 64
 text = "Move Angle:"
 
 [node name="LookAngle" type="Label" parent="Debug"]
-visible = false
 offset_left = 256.0
 offset_top = 512.0
 offset_right = 731.0
@@ -52,15 +51,6 @@ text = "Look Angle:"
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="Game_Area2D" type="Area2D" parent="Camera2D"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Game_Area2D"]
-position = Vector2(1280, 768)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_2a7ld")
-
 [node name="BackgroundTexture" type="TextureRect" parent="Camera2D"]
 z_as_relative = false
 offset_right = 5120.0
@@ -70,6 +60,7 @@ size_flags_horizontal = 3
 texture = ExtResource("1_tnej1")
 
 [node name="Scoreboard" type="CanvasLayer" parent="Camera2D"]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/Scoreboard"]
 anchors_preset = 15
@@ -94,14 +85,38 @@ horizontal_alignment = 1
 
 [node name="Arena" parent="Rooms" instance=ExtResource("2_r8wms")]
 
+[node name="Arena_Start_Top" parent="Rooms" instance=ExtResource("5_mb06e")]
+position = Vector2(0, -1536)
+
+[node name="Arena_Start_Bot" parent="Rooms" instance=ExtResource("6_judwx")]
+position = Vector2(0, 1536)
+
 [node name="Enemies" type="Node2D" parent="."]
-position = Vector2(1280, 768)
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(0, -256)
-
-[node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(1280, 768)
 
-[connection signal="body_exited" from="Camera2D/Game_Area2D" to="." method="_on_camera_focus_body_exited"]
+[node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(-256, -1792)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(256, -1792)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(256, -1280)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("6_jhy00")]
+position = Vector2(-256, -1280)
+
+[node name="Players" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1280, -768)
+
+[node name="Spawns" type="Node" parent="."]
+
+[node name="P1_Spawn" type="Marker2D" parent="Spawns"]
+position = Vector2(1280, -768)
+
+[node name="P2_Spawn" type="Marker2D" parent="Spawns"]
+position = Vector2(1280, 2304)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

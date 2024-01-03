@@ -18,7 +18,7 @@ func _ready():
 	atk_cd_def = 50
 	atk_cd_max = 100
 
-	damage = 0
+	damage = 10
 	super()
 
 func _process(delta):

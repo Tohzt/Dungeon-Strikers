@@ -1,5 +1,9 @@
 extends Node2D
+
+signal start_timer
+
 @onready var debug = $Debug
+@onready var timer = $Timer
 
 @onready var scoreboard = $Camera2D/Scoreboard/MarginContainer/Score
 @onready var arena: Node2D = $Rooms/Arena
@@ -22,6 +26,7 @@ var bricks_to_destroy: Array
 @onready var enemy: SmackableClass = $Enemies/Enemy
 
 func _ready() -> void:
+	start_timer.connect(_start_timer)
 	if GameManager.local_multiplayer:
 		var p1 = Globals.Knight.instantiate()
 		p1.position = arena.get_node("Spawns").get_node("P1_Spawn").position
@@ -41,10 +46,6 @@ func _ready() -> void:
 	if ball:
 		Globals.ball = ball
 		ball.launch()
-#	hide_combo()
-#	ball.attached_to = ball_spawn
-#	ball_spawn.ball_attached = ball
-#	ball_spawn.ball = ball
 
 func _process(_delta):
 	if debug.visible:
@@ -72,7 +73,7 @@ func reset_ball(entity):
 	entity.position = arena.ball_spawn.global_position
 	entity.velocity = Vector2.ZERO
 
-func _on_camera_focus_body_exited(body):
+func move_camera_towards(body):
 	var dir := Vector2.ZERO
 	if body.global_position.x < camera.position.x:
 		dir.x = -1
@@ -85,6 +86,10 @@ func _on_camera_focus_body_exited(body):
 	
 	camera_move += dir * GameManager.view
 
+func _start_timer():
+	$Timer.start()
+func _on_timer_timeout():
+	$Players.get_child(0).overwrite_input = false
 
 
 
@@ -189,4 +194,5 @@ func _on_camera_focus_body_exited(body):
 #	reset_and_attach_ball()
 
 #endregion
+
 
