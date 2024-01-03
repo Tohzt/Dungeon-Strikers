@@ -25,6 +25,7 @@ theme_override_font_sizes/font_size = 64
 text = "slime_state: : "
 
 [node name="Speed_Mod" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 686.0
@@ -33,6 +34,7 @@ theme_override_font_sizes/font_size = 64
 text = "Speed Mod: "
 
 [node name="MoveAngle" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 731.0
@@ -41,6 +43,7 @@ theme_override_font_sizes/font_size = 64
 text = "Move Angle:"
 
 [node name="LookAngle" type="Label" parent="Debug"]
+visible = false
 offset_left = 256.0
 offset_top = 512.0
 offset_right = 731.0
@@ -97,15 +100,6 @@ position = Vector2(1280, 768)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_jhy00")]
 position = Vector2(-256, -1792)
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(256, -1792)
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(256, -1280)
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("6_jhy00")]
-position = Vector2(-256, -1280)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true

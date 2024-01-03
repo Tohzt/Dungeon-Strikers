@@ -68,14 +68,11 @@ func _wander(delta) -> void:
 		wander_timer = 0
 		wander_interval = randi_range(1,5)
 
-func hit_by(obj, _vel: Vector2 = Vector2.ZERO):
+func take_damage(dmg:int = 0, kb:Vector2 = Vector2.ZERO, _stat:String = ""):
+	super(dmg, kb, _stat)
 	health_bar.visible = true
-	health -= obj.damage
 	health_bar.value = health
-	is_moving = false
-	
-	if health <= 0:
-		_die()
+	#is_moving = false
 
 func melee_attack() -> void:
 	is_attacking = ""

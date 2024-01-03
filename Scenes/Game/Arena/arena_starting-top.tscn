@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq0emwyx28al7"]
+[gd_scene load_steps=12 format=3 uid="uid://dq0emwyx28al7"]
 
 [ext_resource type="Texture2D" uid="uid://br56sv53mmamw" path="res://Scenes/Game/Arena/src/Dungeon_Tileset/Dungeon TileMap halfsize.png" id="1_awlkj"]
 [ext_resource type="Script" path="res://Scenes/Game/Arena/arena.gd" id="1_flqxo"]
@@ -716,12 +716,22 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_nr4ff")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_fuet4"]
+diffuse_texture = ExtResource("1_awlkj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oo8pi"]
+texture = SubResource("CanvasTexture_fuet4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSet" id="TileSet_gajog"]
+sources/1 = SubResource("TileSetAtlasSource_oo8pi")
+
 [node name="Arena_Start_Top" type="Node2D"]
 script = ExtResource("1_flqxo")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1279.5, 768)
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xai80")
@@ -739,6 +749,10 @@ layer_0/tile_data = PackedInt32Array(655369, 131072, 10, 720905, 131072, 11, 655
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="FloorAndWalls" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gajog")
+format = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

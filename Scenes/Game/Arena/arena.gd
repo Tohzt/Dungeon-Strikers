@@ -10,11 +10,12 @@ extends Node2D
 	#Globals.game.reset_ball(body)
 
 func _on_area_2d_body_exited(body):
-	body.overwrite_input = true
 	body.hide()
-	Globals.game.start_timer.emit()
+	if body.is_in_group("Player"):
+		body.overwrite_input = true
+		Globals.game.start_timer.emit()
 
 func _on_area_2d_body_entered(body):
 	body.show()
-	Globals.game.move_camera_towards(body)
-
+	if body.is_in_group("Player"):
+		Globals.game.move_camera_towards(body)

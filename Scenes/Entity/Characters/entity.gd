@@ -75,7 +75,9 @@ func _process(delta):
 	velocity += incoming_force
 	
 	if overwrite_input:
-		velocity = Vector2.DOWN * speed_max * delta
+		# TODO: Get direction to next door
+		velocity = prev_dir * speed_max * delta
+		#velocity = Vector2.DOWN * speed_max * delta
 
 func animate_to(verb: String = "", dir: String = ""):
 	var prev_anim = Anim.animation.rsplit("_")
