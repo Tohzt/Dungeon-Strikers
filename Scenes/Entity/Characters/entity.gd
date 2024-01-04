@@ -46,6 +46,8 @@ var mana: int = int(max_mana)
 var stam: int = int(max_stam)
 
 func _ready():
+	
+	print(global_position)
 	if $InputController.get_child_count() == 0:
 		var controller
 		if self.is_in_group("Player"):

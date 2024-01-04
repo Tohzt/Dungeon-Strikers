@@ -29,14 +29,14 @@ func _ready() -> void:
 	start_timer.connect(_start_timer)
 	if GameManager.local_multiplayer:
 		var p1 = Globals.Knight.instantiate()
-		p1.position = arena.get_node("Spawns").get_node("P1_Spawn").position
-		p1.input_type = "Controller"
+		p1.position = get_node("Spawns").get_node("P1_Spawn").position
+		p1.input_type = "Keyboard"
 		$Players.add_child(p1)
 		var p2 = Globals.Mage.instantiate()
-		p2.position = arena.get_node("Spawns").get_node("P2_Spawn").position
-		p2.input_type = "Keyboard"
-		var ai_controller = load("res://Scenes/Entity/Characters/Controller/bot_player_controller.tscn").instantiate()
-		p2.get_node("InputController").add_child(ai_controller)
+		p2.position = get_node("Spawns").get_node("P2_Spawn").position
+		p2.input_type = "Controller"
+		#var ai_controller = load("res://Scenes/Entity/Characters/Controller/bot_player_controller.tscn").instantiate()
+		#p2.get_node("InputController").add_child(ai_controller)
 		$Players.add_child(p2)
 	else:
 		player = Globals.selected_player.instantiate()

@@ -45,6 +45,17 @@ func _adjust_speed():
 	
 
 func _unhandled_input(_event):
+	if Input.is_action_just_pressed("ui_accept"):
+		var _dist_to_door = 1000
+		var _door: StaticBody2D
+		for door in get_tree().get_nodes_in_group("Door"):
+			var dist = Master.global_position.distance_to(door.global_position)
+			if dist < _dist_to_door:
+				_dist_to_door = dist
+				_door = door
+		if _door:
+			_door.open_door.emit(true)
+		
 	#var mouse_input = Vector2.ZERO
 	#if event is InputEventMouseMotion:
 		#var mouse_pos:Vector2 = Master.get_local_mouse_position()

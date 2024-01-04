@@ -15,6 +15,7 @@ script = ExtResource("1_tg51m")
 wait_time = 0.75
 
 [node name="Debug" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="State" type="Label" parent="Debug"]
 offset_left = 256.0
@@ -103,14 +104,15 @@ position = Vector2(-256, -1792)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(1280, -768)
+position = Vector2(1280, 768)
 
-[node name="Spawns" type="Node" parent="."]
+[node name="Spawns" type="Node2D" parent="."]
+position = Vector2(1280, 768)
 
 [node name="P1_Spawn" type="Marker2D" parent="Spawns"]
-position = Vector2(1280, -768)
+position = Vector2(-512, 0)
 
 [node name="P2_Spawn" type="Marker2D" parent="Spawns"]
-position = Vector2(1280, 2304)
+position = Vector2(512, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

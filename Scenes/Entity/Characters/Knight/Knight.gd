@@ -27,15 +27,14 @@ func _process(delta):
 	direction_indicator.rotation = look_dir.angle()
 
 func melee_attack() -> void:
-	#AnimationController._update_anim("melee")
 	var inst_sword_slash = sword_slash.instantiate()
 	inst_sword_slash.caster = self
+	inst_sword_slash.position = global_position
 	$Attacks.add_child(inst_sword_slash)
 
 func ranged_attack() -> void:
 	is_attacking = ""
 	# TODO: Replace with knights range attack
-	#AnimationController._update_anim("melee")
 	var inst_fireball = fireball.instantiate()
 	inst_fireball.caster = self
 	$Attacks.add_child(inst_fireball)

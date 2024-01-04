@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://8ygq7f0sljf" path="res://Scenes/Entity/Characters/src/PlayerDirectionIndicator.png" id="44_v2dq8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw3xp"]
-radius = 65.2093
+radius = 37.63
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l36sh"]
 
@@ -4451,7 +4451,7 @@ shape = SubResource("CircleShape2D_yw3xp")
 
 [node name="Shadow" type="MeshInstance2D" parent="."]
 position = Vector2(0, 20.16)
-scale = Vector2(117.315, 81.345)
+scale = Vector2(60, 40)
 mesh = SubResource("SphereMesh_2tjim")
 texture = SubResource("GradientTexture2D_m4p0b")
 
@@ -4459,14 +4459,12 @@ texture = SubResource("GradientTexture2D_m4p0b")
 z_index = 1
 material = SubResource("ShaderMaterial_ah1jm")
 position = Vector2(0, 15)
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
 animation = &"melee_up-left"
 
 [node name="Attacks" type="Node" parent="."]
 
 [node name="DirectionIndicator" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
 texture = ExtResource("44_v2dq8")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
