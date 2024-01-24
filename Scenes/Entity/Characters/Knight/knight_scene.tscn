@@ -1,4 +1,4 @@
-[gd_scene load_steps=455 format=3 uid="uid://br2cpmytkm5gp"]
+[gd_scene load_steps=454 format=3 uid="uid://br2cpmytkm5gp"]
 
 [ext_resource type="Script" path="res://Scenes/Entity/Characters/Knight/Knight.gd" id="1_a17f4"]
 [ext_resource type="PackedScene" uid="uid://1n2234mcc67m" path="res://Scenes/Entity/Characters/Animation Machine/animation_controller.tscn" id="3_jt1ke"]
@@ -1119,10 +1119,6 @@ region = Rect2(0, 512, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxbns"]
 atlas = ExtResource("21_6oxy3")
 region = Rect2(256, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7285k"]
-atlas = ExtResource("22_fxrt8")
-region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh8op"]
 atlas = ExtResource("22_fxrt8")
@@ -2582,9 +2578,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7285k")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_hh8op")
 }, {
 "duration": 1.0,
@@ -3123,9 +3116,7 @@ material = SubResource("ShaderMaterial_8kiqb")
 position = Vector2(0, 6)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
-animation = &"melee_right"
-frame = 14
-frame_progress = 1.0
+animation = &"run_down-left"
 
 [node name="Attacks" type="Node" parent="."]
 
