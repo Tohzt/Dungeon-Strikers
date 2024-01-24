@@ -6,9 +6,9 @@ extends EntityClass
 @onready var direction_indicator: Sprite2D = $DirectionIndicator
 
 func _ready():
-	speed_min = 20000
-	speed_def = 30000
-	speed_max = 60000
+	speed_min = 10000
+	speed_def = 15000
+	speed_max = 20000
 	speed = speed_def
 	friction = 0.05
 	

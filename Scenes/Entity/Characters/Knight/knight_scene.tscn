@@ -3123,7 +3123,9 @@ material = SubResource("ShaderMaterial_8kiqb")
 position = Vector2(0, 6)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_8dhlm")
-animation = &"idle_up-right"
+animation = &"melee_right"
+frame = 14
+frame_progress = 1.0
 
 [node name="Attacks" type="Node" parent="."]
 

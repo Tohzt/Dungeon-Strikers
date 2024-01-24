@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://br56sv53mmamw" path="res://Scenes/Game/Arena/src/Dungeon_Tileset/Dungeon TileMap halfsize.png" id="2_3tarl"]
 [ext_resource type="PackedScene" uid="uid://cftws1a4ywnwo" path="res://Scenes/Game/Arena/Doors/door_top.tscn" id="3_yivpq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxo6m"]
-size = Vector2(1415, 1210)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msapd"]
 texture = ExtResource("2_3tarl")
 texture_region_size = Vector2i(128, 128)
@@ -370,15 +367,11 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_msapd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxo6m"]
+size = Vector2(1415, 1210)
+
 [node name="Arena_Start_Bot" type="Node2D"]
 script = ExtResource("1_g4pru")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1279.5, 768)
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_kxo6m")
 
 [node name="TileMap" type="TileMap" parent="." groups=["Solid"]]
 tile_set = SubResource("TileSet_25qdh")
@@ -393,8 +386,15 @@ one_shot = true
 [node name="Door" parent="Doors" instance=ExtResource("3_yivpq")]
 position = Vector2(1280, 128)
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1279.5, 768)
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kxo6m")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Doors/Door"]

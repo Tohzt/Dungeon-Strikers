@@ -739,7 +739,7 @@ tile_set = SubResource("TileSet_aal0m")
 format = 2
 layer_0/tile_data = PackedInt32Array(655369, 131072, 10, 720905, 131072, 11, 655370, 196608, 10, 720906, 196608, 11, 9, 131072, 6, 65545, 131072, 7, 10, 196608, 6, 65546, 196608, 7, 327680, 393216, 2, 393216, 393216, 3, 327681, 458752, 2, 393217, 458752, 3, 327698, 1048576, 2, 393234, 1048576, 3, 327699, 1114112, 2, 393235, 1114112, 3)
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Doors" type="Node" parent="."]
 
 [node name="Door" parent="Doors" instance=ExtResource("4_kb562")]
 position = Vector2(1280, 128)
